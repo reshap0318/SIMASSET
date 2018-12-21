@@ -41,8 +41,8 @@
             </ul>
           </li>
         @endif
-          <li><a href="{{ url('My-QrCode') }}"><i class="fa fa-qrcode"></i>My QR-Code</a>
-          </li>
+          <li><a href="{{ url('My-QrCode') }}"><i class="fa fa-folder"></i>Asset</a></li>
+          <li><a href="{{ url('My-QrCode') }}"><i class="fa fa-qrcode"></i>My QR-Code</a></li>
       </ul>
     </div>
 
