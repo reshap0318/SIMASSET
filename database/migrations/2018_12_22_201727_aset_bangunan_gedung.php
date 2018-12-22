@@ -15,7 +15,7 @@ class AsetBangunanGedung extends Migration
     {
         Schema::create('data_master', function (Blueprint $table) {
             $table->string('no_registrasi_aset')->index();
-            $table->string('jumlah_lantai');
+            $table->integer('jumlah_lantai');
             $table->geometry('geom');
             $table->foreign('no_registrasi_aset')->references('no_registrasi_aset')->on('data_master');
             $table->timestamp('created_at')->nullable();

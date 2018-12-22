@@ -20,8 +20,8 @@ class AsetTanah extends Migration
             $table->string('jenis_sertifikat');
             $table->string('no_dokumen');
             $table->date('tanggal_dokumen');
-            $table->string('luas');
-            $table->string('luas_tanah_bangunan');
+            $table->integer('luas');
+            $table->integer('luas_tanah_bangunan');
             $table->geometry('geom');
             $table->foreign('no_registrasi_aset')->references('no_registrasi_aset')->on('data_master');
             $table->timestamp('created_at')->nullable();
