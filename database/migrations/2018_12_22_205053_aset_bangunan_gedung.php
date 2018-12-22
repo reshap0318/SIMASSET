@@ -13,7 +13,7 @@ class AsetBangunanGedung extends Migration
      */
     public function up()
     {
-        Schema::create('data_master', function (Blueprint $table) {
+        Schema::create('aset_bangunan_gedung', function (Blueprint $table) {
             $table->string('no_registrasi_aset')->index();
             $table->integer('jumlah_lantai');
             $table->geometry('geom');

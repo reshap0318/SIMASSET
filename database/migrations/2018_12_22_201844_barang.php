@@ -13,7 +13,7 @@ class Barang extends Migration
      */
     public function up()
     {
-        Schema::create('data_master', function (Blueprint $table) {
+        Schema::create('barang', function (Blueprint $table) {
             $table->string('kode_barang')->index();
             $table->string('nama_barang');
             $table->timestamp('created_at')->nullable();
@@ -27,6 +27,6 @@ class Barang extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('barang');
     }
 }

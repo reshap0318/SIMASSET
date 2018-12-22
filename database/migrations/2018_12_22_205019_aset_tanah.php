@@ -13,7 +13,7 @@ class AsetTanah extends Migration
      */
     public function up()
     {
-        Schema::create('data_master', function (Blueprint $table) {
+        Schema::create('aset_tanah', function (Blueprint $table) {
             $table->string('no_registrasi_aset')->index();
             $table->string('status_dokumen');
             $table->string('jenis_dokumen');

@@ -11,7 +11,7 @@ class dataMasterTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('barang')->insert([
+        DB::table('data_master')->insert([
         'no_registrasi_aset' => '2.01.03.02.999.00001',
         'kode_barang' => '20103029999',
         'kode_satker' => '042010800400928001KD',
