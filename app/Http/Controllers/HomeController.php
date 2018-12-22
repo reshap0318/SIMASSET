@@ -24,6 +24,7 @@ class HomeController extends Controller
     }
     public function dashboard($value='')
     {
+      dd(Sentinel::inRole(''));
         return view('dashboard');
     }
 }

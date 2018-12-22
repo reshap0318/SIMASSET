@@ -15,8 +15,9 @@ use Illuminate\Notifications\Notifiable;
 use App\Notifications\ResetPassword;
 use  Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Authenticatable as AuthenticableTrait;
+use Cartalyst\Sentinel\Users\EloquentUser as SentinelUser;
 
-class User extends Model implements RoleableInterface, PermissibleInterface, PersistableInterface, UserInterface ,CanResetPassword,Authenticatable
+class User extends SentinelUser implements RoleableInterface, PermissibleInterface, PersistableInterface, UserInterface ,CanResetPassword,Authenticatable
 {
     use PermissibleTrait,Notifiable,AuthenticableTrait;
 
@@ -46,7 +47,7 @@ class User extends Model implements RoleableInterface, PermissibleInterface, Per
     protected $hidden = [
         'password','remember_token','QRpassword',
     ];
-    
+
     protected $loginNames = ['email','username'];
 
     //Change Password

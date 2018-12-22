@@ -7,8 +7,9 @@ use Cartalyst\Sentinel\Permissions\PermissibleTrait;
 use Illuminate\Database\Eloquent\Model;
 use Cartalyst\Sentinel\Roles\RoleInterface;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Cartalyst\Sentinel\Roles\EloquentRole as SentinelRole;
 
-class Role extends Model implements RoleInterface, PermissibleInterface
+class Role extends SentinelRole implements RoleInterface, PermissibleInterface
 {
     use PermissibleTrait;
     // use SoftDeletes;
@@ -79,7 +80,7 @@ class Role extends Model implements RoleInterface, PermissibleInterface
     {
         return $this->getKey();
     }
-    
+
     public function parent(){
         return $this->belongsTo('App\Role', 'parent_id');
     }

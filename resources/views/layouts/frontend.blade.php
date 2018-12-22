@@ -9,7 +9,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}" />
   <link rel="icon" href="images/favicon.ico" type="image/ico" />
 
-    <title>Silab | @yield('title')</title>
+    <title>{{ config('app.name', 'Laravel') }} | @yield('title')</title>
 
     <!-- Bootstrap -->
     <link href="{{ URL::asset('/gantela/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">

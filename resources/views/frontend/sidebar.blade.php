@@ -1,6 +1,6 @@
 <div class="left_col scroll-view">
   <div class="navbar nav_title" style="border: 0;">
-    <a href="{{url('dashboard')}}" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+    <a href="{{url('dashboard')}}" class="site_title"><i class="fa fa-paw"></i> <span>SIM-ASSET</span></a>
   </div>
 
   <div class="clearfix"></div>
@@ -41,7 +41,6 @@
             </ul>
           </li>
         @endif
-          <li><a href="{{route('asset.index')}}"><i class="fa fa-folder"></i>Asset</a></li>
           <li><a href="{{ url('My-QrCode') }}"><i class="fa fa-qrcode"></i>My QR-Code</a></li>
       </ul>
     </div>

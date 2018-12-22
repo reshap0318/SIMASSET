@@ -28,7 +28,13 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
+      //fungsi cek untuk mengetahui user sudah login atau belum
+      if(Sentinel::check()){
+        return redirect()->back();
+      }else{
         return view('auth.login');
+      }
+
     }
 
     protected function login(Request $request)

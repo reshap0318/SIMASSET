@@ -50,6 +50,5 @@ Route::group(['middleware' => ['web', 'auth', 'permission'] ], function () {
 	Route::get('role/{id}/permission','RoleController@permissions')->name('role.permissions');
 	Route::post('role/{id}/permission', 'RoleController@simpan')->name('role.simpan');
 
-  Route::resource('asset','assetController');
 
 });
