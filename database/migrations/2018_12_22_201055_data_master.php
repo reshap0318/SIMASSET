@@ -24,6 +24,7 @@ class DataMaster extends Migration
             $table->string('tercatat_dalam');
             $table->string('status_sbsn');
             $table->string('status_aset_idle');
+            $table->string('foto');
             $table->foreign('kode_barang')->references('kode_barang')->on('barang');
             $table->foreign('kode_satker')->references('kode_satker')->on('satker');
             $table->timestamp('created_at')->nullable();
