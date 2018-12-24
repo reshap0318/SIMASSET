@@ -52,6 +52,7 @@ $credentials = [
 6. untuk *logout*, menggunakan `entinel::logout()`
 
 7. untuk *menglogoutkan user lain yang login*, menggunakan
+
     `$user = Sentinel::findUserById(1);
 
       Sentinel::logout($user, true);`
@@ -67,36 +68,47 @@ $credentials = [
 12. untuk *Mencari Role(jabatan) berdasarkan namanya(slug)*, menggunakan `Sentinel::findRoleBySlug()`, dan ada juga `Sentinel::findRoleByName()`
 
 13. untuk *Menambahkan Role*, menggunakan
+
     `$role = Sentinel::getRoleRepository()->createModel()->create([
+
         'name' => 'Subscribers',
+
         'slug' => 'subscribers',
+
     ])`
 
 14. untuk *Memberi Role kesebuah user*, menggunakan
+
     `$user = Sentinel::findById(1);
 
-      $role = Sentinel::findRoleByName('Subscribers');
+     $role = Sentinel::findRoleByName('Subscribers');
 
-      $role->users()->attach($user);`
+     $role->users()->attach($user);`
 
 15. untuk *menghapus role user*, menggunakan
 
     `$user = Sentinel::findById(1);
 
-    $role = Sentinel::findRoleByName('Subscribers');
+     $role = Sentinel::findRoleByName('Subscribers');
 
-    $role->users()->detach($user);`
+     $role->users()->detach($user);`
 
 16. untuk *Melihat Permission dari suatu user atau role*, Menggunakan
+
     `$user = Sentinel::findById(1);
 
       if ($user->hasAccess(['user.create', 'user.update']))
-      {
-          // Execute this code if the user has permission
-      }
-      else
-      {
-          // Execute this code if the permission check failed
-      }`
 
-17. 
+      {
+
+          // Execute this code if the user has permission
+
+      }
+
+      else
+
+      {
+
+          // Execute this code if the permission check failed
+
+      }`

@@ -12,9 +12,9 @@ class asetBangunanTableSeeder extends Seeder
     public function run()
     {
       DB::table('aset_bangunan_gedung')->insert([
-          'no_registrasi_aset' => '4.01.01.01.001.00001',
-          'jumlah_lantai' => 2,
-          'geom' =>''
+          'no_registrasi_aset' => '2.01.03.02.999.00001',
+          'jumlah_lantai'      => 2,
+          'geom'               => null
       ]);
     }
 }
