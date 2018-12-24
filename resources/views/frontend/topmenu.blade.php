@@ -11,7 +11,7 @@
       @else
         <img src="{{ url('avatar/profile-pict/'.Sentinel::getUser()->avatar) }}" alt="..." >
       @endif
-      {{Sentinel::getUser()->first_name.' '.Sentinel::getUser()->last_name}}
+      {{Sentinel::getUser()->nama}}
         <span class=" fa fa-angle-down"></span>
       </a>
       <ul class="dropdown-menu dropdown-usermenu pull-right">

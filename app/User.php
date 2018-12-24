@@ -28,13 +28,10 @@ class User extends SentinelUser implements RoleableInterface, PermissibleInterfa
      */
     protected $fillable = [
         'username',
-        'last_name',
-        'first_name',
-        'no_anggota',
+        'nama',
         'email',
         'avatar',
         'last_login',
-        'password',
         'permissions',
         'remember_token',
     ];

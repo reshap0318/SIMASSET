@@ -21,10 +21,11 @@ class Tanah extends Migration
              $table->string('jenis_sertifikat');
              $table->string('no_dokumen');
              $table->date('tanggal_dokumen');
+             $table->string('foto_dokumen')->nullable();
              $table->integer('luas');
              $table->integer('luas_tanah_bangunan');
              $table->multipolygon('geom', "GEOMETRY", 0)->nullable();
-             
+
              $table->foreign('no_registrasi_aset')->references('no_registrasi_aset')->on('asset');
              $table->timestamps();
          });

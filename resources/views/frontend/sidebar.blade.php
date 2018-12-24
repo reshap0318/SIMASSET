@@ -17,7 +17,7 @@
     </div>
     <div class="profile_info">
       <span>Welcome,</span>
-      <h2>{{Sentinel::getuser()->first_name.' '.Sentinel::getuser()->last_name}}</h2>
+      <h2>{{Sentinel::getuser()->nama}}</h2>
     </div>
   </div>
   <!-- /menu profile quick info -->

@@ -99,6 +99,7 @@ class MigrationCartalystSentinel extends Migration
             $table->string('nama');
             $table->string('email');
             $table->string('password');
+            $table->string('avatar')->nullable();
             $table->string('QRpassword')->default(str_random(40));
             $table->text('permissions')->default('{"home.dashboard":true}');
             $table->timestamp('last_login')->nullable();

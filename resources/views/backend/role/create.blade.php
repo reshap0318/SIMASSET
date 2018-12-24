@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
-@section('style')
-	
+@section('title')
+	New Role
 @stop
 
 
@@ -16,14 +16,14 @@
       <div class="x_content">
         <br />
 {{ Form::open(array('url' => route('role.store'), 'class' => 'form-horizontal','files' => true,'class'=>'form-horizontal form-label-left','data-parsley-validate','id'=>'demo-form2')) }}
-          
+
           @include('backend.role.form')
 
           <div class="ln_solid"></div>
           <div class="form-group">
             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3 text-center">
-              <button class="btn btn-primary" type="button">Cancel</button>
-			  <button class="btn btn-primary" type="reset">Reset</button>
+              <a class="btn btn-primary" href="{{route('role.index')}}">Cancel</a>
+			  			<button class="btn btn-primary" type="reset">Reset</button>
               <button type="submit" class="btn btn-success">Submit</button>
             </div>
           </div>
