@@ -14,19 +14,10 @@ class DataMaster extends Migration
     public function up()
     {
       Schema::create('data_master', function (Blueprint $table) {
-          $table->increments('id');
-          $table->string('no_registrasi_aset')->unique();
-          $table->string('kode_barang');
-          $table->string('kode_satker');
-          $table->string('nup');
-          $table->string('no_kib');
-          $table->integer('kondisi');
-          $table->string('merek');
-          $table->string('tercatat_dalam');
-          $table->string('status_sbsn');
-          $table->string('status_aset_idle');
-          $table->string('foto');
-            $table->timestamps();
+        $table->increments('id');
+        $table->string('nama_asset');
+        $table->string('keteragan');
+        $table->timestamps();
       });
     }
 

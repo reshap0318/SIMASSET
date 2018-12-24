@@ -11,7 +11,7 @@ class asetTanahTableSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('aset_tanah')->insert([
+      DB::table('tanah')->insert([
         'no_registrasi_aset' => '2.01.03.02.999.00001',
         'status_dokumen'     => '',
         'jenis_dokumen'      => '',

@@ -33,9 +33,13 @@ Sebelum melakukan instalasi, pastikan composer telah terinstall.
 
 # Catatan Untuk Sentinel :
 `Sentinel Menggunakan Array, jadi Usahakan Selalu Menggunakan Array, disini saya menggunakan array dengan nama creadentials
+
 $credentials = [
+
     'email'    => 'john.doe@example.com',
+
     'password' => 'password',
+
 ];
 `
 
@@ -47,15 +51,16 @@ $credentials = [
 
 4. untuk *Cek yang membuka halaman adalam tamu*, menggunakan `Sentinel::guest()` gunakan didalam if
 
-5. untuk *Mengambil data user(sendiri)*, menggunakan `Sentinel::getUser()`, misalkan Sentinel::getUser()->id
+5. untuk *Mengambil data user(sendiri)*, menggunakan `Sentinel::getUser()`, misalkan `Sentinel::getUser()->id`
 
-6. untuk *logout*, menggunakan `entinel::logout()`
+6. untuk *logout*, menggunakan `Sentinel::logout()`
 
 7. untuk *menglogoutkan user lain yang login*, menggunakan
 
-    `$user = Sentinel::findUserById(1);
+    `$user = Sentinel::findUserById(1)
 
-      Sentinel::logout($user, true);`
+      Sentinel::logout($user, true)
+      `
 
 8. untuk *mencari user dengan id*, menggunakan `Sentinel::findById(1)`
 
@@ -67,35 +72,29 @@ $credentials = [
 
 12. untuk *Mencari Role(jabatan) berdasarkan namanya(slug)*, menggunakan `Sentinel::findRoleBySlug()`, dan ada juga `Sentinel::findRoleByName()`
 
-13. untuk *Menambahkan Role*, menggunakan
-
-    `$role = Sentinel::getRoleRepository()->createModel()->create([
-
-        'name' => 'Subscribers',
-
-        'slug' => 'subscribers',
-
-    ])`
+13. untuk *Menambahkan Role*, menggunakan `$role = Sentinel::getRoleRepository()->createModel()->create($credentials)`
 
 14. untuk *Memberi Role kesebuah user*, menggunakan
 
-    `$user = Sentinel::findById(1);
+    `$user = Sentinel::findById(1)
 
-     $role = Sentinel::findRoleByName('Subscribers');
+     $role = Sentinel::findRoleByName('Subscribers')
 
-     $role->users()->attach($user);`
+     $role->users()->attach($user)
+     `
 
 15. untuk *menghapus role user*, menggunakan
 
-    `$user = Sentinel::findById(1);
+    `$user = Sentinel::findById(1)
 
-     $role = Sentinel::findRoleByName('Subscribers');
+     $role = Sentinel::findRoleByName('Subscribers')
 
-     $role->users()->detach($user);`
+     $role->users()->detach($user)
+     `
 
 16. untuk *Melihat Permission dari suatu user atau role*, Menggunakan
 
-    `$user = Sentinel::findById(1);
+    `$user = Sentinel::findById(1)
 
       if ($user->hasAccess(['user.create', 'user.update']))
 
@@ -111,4 +110,5 @@ $credentials = [
 
           // Execute this code if the permission check failed
 
-      }`
+      }
+      `

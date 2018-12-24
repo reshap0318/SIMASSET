@@ -15,7 +15,7 @@ class Satker extends Migration
     {
       Schema::create('satker', function (Blueprint $table) {
         $table->increments('id');
-        $table->string('kode_satker');
+        $table->string('kode_satker')->unique();
         $table->string('nama_satker');
           $table->timestamps();
     });
