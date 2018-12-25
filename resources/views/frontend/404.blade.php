@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>{{ config('app.name', 'Laravel') }} | 404</title>
+    <link rel="icon" href="{{asset('img/unand.png')}}" type="image/ico" />
 
     <!-- Bootstrap -->
     <link href="{{asset('gantela/vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">

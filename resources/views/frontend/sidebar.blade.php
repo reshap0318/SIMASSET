@@ -41,6 +41,9 @@
             </ul>
           </li>
         @endif
+        @if(Sentinel::getUser()->hasAccess(['barang.index']))
+          <li><a href="{{ route('barang.index') }}"><i class="fa fa-cubes"></i>Barang</a></li>
+        @endif
           <li><a href="{{ url('My-QrCode') }}"><i class="fa fa-qrcode"></i>My QR-Code</a></li>
       </ul>
     </div>
