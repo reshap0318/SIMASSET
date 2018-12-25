@@ -15,7 +15,7 @@ class AsetTanah extends Migration
     {
         Schema::create('aset_tanah', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('no_registrasi_aset')->unique()->index();
+            $table->string('no_registrasi_aset')->index();
             $table->string('status_dokumen');
             $table->string('jenis_dokumen');
             $table->string('jenis_sertifikat');

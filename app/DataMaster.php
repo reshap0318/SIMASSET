@@ -9,8 +9,13 @@ class DataMaster extends Model
     protected $table = 'data_master';
 
 
-     public function banugnans()
+     public function banugnan()
     {
         return $this->hasMany(\App\Bangunan::class);
+    }
+
+    public function tanah()
+    {
+        return $this->hasMany(\App\Tanah::class);
     }
 }

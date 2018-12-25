@@ -5,14 +5,63 @@
   <div class="col-md-6 col-sm-6 col-xs-12">
     {!! Form::select('no_registrasi', $noReg,null, ['class' => 'form-control','class'=>'form-control col-md-7 col-xs-12']) !!}
   </div>
+</div>  
+
+<div class="form-group">
+  {!! Form::label('status_dokumen', 'Status Dokumen *', ['class' => 'control-label col-md-3 col-sm-3 col-xs-12']) !!}
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    {!! Form::text('status_dokumen', null, ['class' => 'form-control','class'=>'form-control col-md-7 col-xs-12']) !!}
+  </div>
+</div>
+
+
+<div class="form-group">
+  {!! Form::label('jenis_dokumen', 'Jenis Dokumen *', ['class' => 'control-label col-md-3 col-sm-3 col-xs-12']) !!}
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    {!! Form::text('jenis_dokumen', null, ['class' => 'form-control','class'=>'form-control col-md-7 col-xs-12']) !!}
+  </div>
+</div>
+
+
+<div class="form-group">
+  {!! Form::label('no_dokumen', 'No Dokumen *', ['class' => 'control-label col-md-3 col-sm-3 col-xs-12']) !!}
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    {!! Form::text('no_dokumen', null, ['class' => 'form-control','class'=>'form-control col-md-7 col-xs-12']) !!}
+  </div>
 </div>
 
 <div class="form-group">
-  {!! Form::label('jumlah_lantai', 'Jumlah Lantai *', ['class' => 'control-label col-md-3 col-sm-3 col-xs-12']) !!}
+  {!! Form::label('jenis_sertifikat', 'Jenis Sertifikat *', ['class' => 'control-label col-md-3 col-sm-3 col-xs-12']) !!}
   <div class="col-md-6 col-sm-6 col-xs-12">
-    {!! Form::text('jumlah_lantai', null, ['class' => 'form-control','class'=>'form-control col-md-7 col-xs-12']) !!}
+    {!! Form::text('jenis_sertifikat', null, ['class' => 'form-control','class'=>'form-control col-md-7 col-xs-12']) !!}
   </div>
 </div>
+
+
+<div class="form-group">
+  {!! Form::label('tanggal_dokumen', 'Tanggal Dokumen *', ['class' => 'control-label col-md-3 col-sm-3 col-xs-12']) !!}
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    {!! Form::date('tanggal_dokumen', null, ['class' => 'form-control','class'=>'form-control col-md-7 col-xs-12']) !!}
+  </div>
+</div>
+
+
+<div class="form-group">
+  {!! Form::label('luas', 'Luas *', ['class' => 'control-label col-md-3 col-sm-3 col-xs-12']) !!}
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    {!! Form::number('luas', null, ['class' => 'form-control','class'=>'form-control col-md-7 col-xs-12']) !!}
+  </div>
+</div>
+
+
+<div class="form-group">
+  {!! Form::label('luas_tanah_bangunan', 'Luas Tanah Bangunan *', ['class' => 'control-label col-md-3 col-sm-3 col-xs-12']) !!}
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    {!! Form::number('luas_tanah_bangunan', null, ['class' => 'form-control','class'=>'form-control col-md-7 col-xs-12']) !!}
+  </div>
+</div>
+
+
 
 <!-- Geom Field -->
 <div class="form-group col-sm-12">

@@ -17,7 +17,7 @@
         <br />
 {{ Form::open(array('url' => route('tanah.store'), 'class' => 'form-horizontal','files' => true,'class'=>'form-horizontal form-label-left','data-parsley-validate','id'=>'demo-form2')) }}
           
-          @include('backend.asset.bangunan.form')
+          @include('backend.asset.tanah.form')
 
           <div class="ln_solid"></div>
           <div class="form-group">
