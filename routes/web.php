@@ -52,4 +52,9 @@ Route::group(['middleware' => ['web', 'auth', 'permission'] ], function () {
 
   Route::resource('asset','assetController');
 
+  Route::resource('bangunan','BangunanController');
+  Route::resource('tanah','TanahController');
+
+
+
 });

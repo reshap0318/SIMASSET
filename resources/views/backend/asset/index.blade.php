@@ -10,7 +10,8 @@
     <h2>Asset Unand <small>List</small></h2>
     <ul class="nav navbar-right panel_toolbox">
       @if (Sentinel::getUser()->hasAccess(['role.create']))
-        <a href="{{route('asset.create')}}" class="btn btn-success">New Asset</a>
+        <a href="{{route('bangunan.create')}}" class="btn btn-success">New Bangunan</a>
+        <a href="{{route('tanah.create')}}" class="btn btn-success">New Tanah</a>
       @endif
     </ul>
     <div class="clearfix"></div>
