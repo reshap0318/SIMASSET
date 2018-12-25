@@ -15,7 +15,9 @@
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.4.0",
         "simplesoftwareio/simple-qrcode": "~2",
-        "symfony/http-foundation": "^4.1"
+        "symfony/http-foundation": "^4.1",
+        "doctrine/dbal": "~2.3",
+        "phaza/laravel-postgis": "^3.3"
     },
     "require-dev": {
         "filp/whoops": "^2.0",

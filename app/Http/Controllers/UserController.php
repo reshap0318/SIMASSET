@@ -35,8 +35,7 @@ class UserController extends Controller
         //dd($request->first_name);
         $request->validate([
             'username' => 'required|min:3|unique:users',
-            'first_name' => 'required|min:3',
-            'last_name' => 'required|min:3',
+            'nama' => 'required|min:3',
             'email' => 'required|email',
             'role' => 'required',
             'password' => 'required|same:password_confirm',
@@ -44,18 +43,13 @@ class UserController extends Controller
         ]);
         $user = new User;
         $user->username = $request->username;
-        $user->permissions = ['{"home.dashboard":true}'];
+        $user->permissions = '{"home.dashboard":true}';
         //dd([$request->role, $user->permissions]);
-        $user->first_name = $request->first_name;
-        $user->last_name = $request->last_name;
+        $user->nama = $request->nama;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $qrLogin=bcrypt($user->personal_number.$user->email.str_random(40));
         $user->QRpassword= $qrLogin;
-
-        if($request->no_anggota){
-            $user->no_anggota = $request->no_anggota;
-        }
 
         if ($request->hasFile('avatar') && $request->avatar->isValid()) {
             $path = 'img/avatars';
@@ -115,20 +109,15 @@ class UserController extends Controller
         //dd($request->all());
         $request->validate([
             'username' => 'required',
-            'first_name' => 'required|min:3',
-            'last_name' => 'required|min:3',
+            'nama' => 'required|min:3',
             'email' => 'required|email',
             'role' => 'required',
         ]);
 
         $user = User::find($id);
         $user->username = $request->username;
-        $user->first_name = $request->first_name;
-        $user->last_name = $request->last_name;
+        $user->nama = $request->nama;
         $user->email = $request->email;
-        if($request->no_anggota){
-            $user->no_anggota = $request->no_anggota;
-        }
 
         if($user->save()){
             if ($request->role) {

@@ -1,6 +1,6 @@
 <div class="left_col scroll-view">
   <div class="navbar nav_title" style="border: 0;">
-    <a href="{{url('dashboard')}}" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+    <a href="{{url('dashboard')}}" class="site_title"><i class="fa fa-paw"></i> <span>SIM-ASSET</span></a>
   </div>
 
   <div class="clearfix"></div>
@@ -17,7 +17,7 @@
     </div>
     <div class="profile_info">
       <span>Welcome,</span>
-      <h2>{{Sentinel::getuser()->first_name.' '.Sentinel::getuser()->last_name}}</h2>
+      <h2>{{Sentinel::getuser()->nama}}</h2>
     </div>
   </div>
   <!-- /menu profile quick info -->
@@ -41,7 +41,9 @@
             </ul>
           </li>
         @endif
-          <li><a href="{{route('asset.index')}}"><i class="fa fa-folder"></i>Asset</a></li>
+        @if(Sentinel::getUser()->hasAccess(['barang.index']))
+          <li><a href="{{ route('barang.index') }}"><i class="fa fa-cubes"></i>Barang</a></li>
+        @endif
           <li><a href="{{ url('My-QrCode') }}"><i class="fa fa-qrcode"></i>My QR-Code</a></li>
       </ul>
     </div>

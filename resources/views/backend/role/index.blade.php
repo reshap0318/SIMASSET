@@ -7,7 +7,7 @@
 @section('content')
 <div class="x_panel">
   <div class="x_title">
-    <h2>Table design <small>Custom design</small></h2>
+    <h2>Table Role</h2>
     <ul class="nav navbar-right panel_toolbox">
       @if (Sentinel::getUser()->hasAccess(['role.create']))
         <a href="{{route('role.create')}}" class="btn btn-success">New Role</a>
@@ -44,7 +44,7 @@
             @if (Sentinel::getUser()->hasAccess(['role.edit']))
               <a href="{{route('role.edit', $role->id)}}" class="btn btn-success btn-xs">edit</a>
             @endif
-            
+
             @if (Sentinel::getUser()->hasAccess(['role.permissions']))
               <a href="{{route('role.permissions', $role->id)}}" class="btn btn-warning btn-xs">Permissions</a>
             @endif
@@ -77,6 +77,6 @@
   $("input#delete-confirm").on("click", function(){
         return confirm("Are you sure to delete this role");
     });
-   
+
 </script>
 @endsection

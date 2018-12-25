@@ -4,23 +4,27 @@
 	<link href="{{ URL::asset('/gantela/vendors/sumoselect/sumoselect.css') }}" rel="stylesheet" />
 @stop
 
+@section('title')
+	Permission {{$user->nama}}
+@stop
+
 
 @section('content')
 <div class="row">
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
       <div class="x_title">
-        <h2>{{$user->first_name.' '.$user->last_name}} <small>Permission</small></h2>
+        <h2>{{$user->nama}} <small>Permission</small></h2>
         <div class="clearfix"></div>
       </div>
       <div class="x_content">
 {{ Form::open(array('url' => route('user.simpan',$user->id),'files' => true,'class'=>'form-horizontal','data-parsley-validate','id'=>'demo-form2')) }}
-          
+
           @foreach($actions as $action)
             <div class=" row form-group col-md-6">
                 <?php $first= array_values($action)[0];
                     $firstname =explode(".", $first)[0];
-                ?> 
+                ?>
                 {{Form::label($firstname, $firstname, ['class' => 'form col-md-3 capital_letter'])}}
                     <select name="permissions[]" class="select" multiple="multiple">
                         @foreach($action as $act)
@@ -31,17 +35,17 @@
                                 <option value="{{$act}}" {{array_key_exists($act, $user->permissions)?"selected":""}}>
 
                                 {{explode(".", $act)[1]}}
-      
+
                                 </option>
                             @endif
                         @endforeach
-                    </select>        
+                    </select>
             </div>
           @endforeach
           <div class="form-group">
             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 col-sm-offset-3 col-xs-offset-3 text-center">
-              <button class="btn btn-primary" type="button">Cancel</button>
-			  <button class="btn btn-primary" type="reset">Reset</button>
+              <a class="btn btn-primary" href="{{route('user.index')}}">Cancel</a>
+			  			<button class="btn btn-primary" type="reset">Reset</button>
               <button type="submit" class="btn btn-success">Submit</button>
             </div>
           </div>

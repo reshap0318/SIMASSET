@@ -21,8 +21,8 @@ Users
       <th class="text-center">
         <input type="checkbox" name="select_all" value="1" id="example-select-all">
       </th>
-      <th>Name </th>
-      <th>No Anggota </th>
+      <th>Nama </th>
+      <th>Email </th>
       <th>Jabatan </th>
       <th class="no-link last"><span class="nobr">Action</span>
       </th>
@@ -36,8 +36,8 @@ Users
     @foreach($users as $user)
 
           <td class="text-center">{{ Form::checkbox('sel', $user->id, null, ['class' => ''])}}</td>
-          <td class=" ">{{$user->first_name.' '.$user->last_name}}</td>
-          <td class=" ">{{$user->no_anggota}}</td>
+          <td class=" ">{{$user->nama}}</td>
+          <td class=" ">{{$user->email}}</td>
           @if(is_null($user->roles()->first()))
             <td class=" ">Jabatan Belum Ada</td>
           @else
@@ -50,14 +50,14 @@ Users
             @if (Sentinel::getUser()->hasAccess(['user.edit']))
               <a href="{{route('user.edit', $user->id)}}" class="btn btn-success btn-xs">edit</a>
             @endif
-            
+
             @if (Sentinel::getUser()->hasAccess(['user.permissions']))
               <a href="{{route('user.permissions', $user->id)}}" class="btn btn-warning btn-xs">Permissions</a>
             @endif
             @if (Sentinel::getUser()->hasAccess(['user.create']))
               <a href="{{ url("user/qr-code/$user->id") }}" class="btn btn-warning btn-xs">Qr-Code</a>
             @endif
-              
+
             @if(sizeof($user->activations) == 0)
               @if (Sentinel::getUser()->hasAccess(['user.activate']))
                 <a href="{{route('user.activate', $user->id)}}" class="btn btn-primary btn-xs">Activate</a>
@@ -180,7 +180,7 @@ Users
 
 
 
-   
+
    function get_Selected_id() {
     var searchIDs = $("input[name=sel]:checked").map(function(){
       return $(this).val();

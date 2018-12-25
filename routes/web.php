@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 Route::get('qrLogin', ['uses' => 'QrLoginController@qr1']);
 Route::get('qrLogin2', ['uses' => 'QrLoginController@qr2']);
@@ -23,6 +19,9 @@ Route::post('qrLogin', ['uses' => 'QrLoginController@checkUser']);
 Route::get('avatar/{type}/{file_id}','FileController@image');
 
 Route::group(['middleware' => ['web', 'auth', 'permission'] ], function () {
+  Route::get('/', function () {
+      return view('welcome');
+  });
  	Route::get('dashboard', ['uses' => 'HomeController@dashboard', 'as' => 'home.dashboard']);
 	//users
 	Route::resource('user', 'UserController');
@@ -50,6 +49,9 @@ Route::group(['middleware' => ['web', 'auth', 'permission'] ], function () {
 	Route::get('role/{id}/permission','RoleController@permissions')->name('role.permissions');
 	Route::post('role/{id}/permission', 'RoleController@simpan')->name('role.simpan');
 
-  Route::resource('asset','assetController');
+
+  route::resource('aset','assetController');
+  route::resource('barang','barangController');
+
 
 });

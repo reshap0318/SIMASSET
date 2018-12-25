@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}" />
-  <link rel="icon" href="images/favicon.ico" type="image/ico" />
+  <link rel="icon" href="{{asset('img/unand.png')}}" type="image/ico" />
 
-    <title>Silab | @yield('title')</title>
+    <title>{{ config('app.name', 'Laravel') }} | @yield('title')</title>
 
     <!-- Bootstrap -->
     <link href="{{ URL::asset('/gantela/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -41,7 +41,7 @@
     @yield('style')
   </head>
 
-  <body class="nav-md">
+  <body class="nav-sm">
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">

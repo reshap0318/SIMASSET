@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentelella Alela! | </title>
+    <title>{{ config('app.name', 'Laravel') }} | Login</title>
 
     <!-- Bootstrap -->
 
@@ -30,7 +30,7 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
             <section class="login_content">
-              <img src="{{asset('img/unand.png')}}" width="100px" height="100px" alt="">
+              <img src="{{asset('img/unand.png')}}" width="170px" height="100px" alt="">
                 <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
                     {{ csrf_field() }}
                     <h1>SIM-ASSET UNAND</h1>
