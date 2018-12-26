@@ -41,11 +41,21 @@
             </ul>
           </li>
         @endif
+
+
+
         @if(Sentinel::getUser()->hasAccess(['barang.index']))
           <li><a href="{{ route('barang.index') }}"><i class="fa fa-cubes"></i>Barang</a></li>
         @endif
+
+          <li><a href="{{ route('datamaster.index') }}"><i class="fa fa-bookmark  "></i>Aset</a></li>
+
           <li><a href="{{ url('My-QrCode') }}"><i class="fa fa-qrcode"></i>My QR-Code</a></li>
+
+
+
       </ul>
+
     </div>
 
   </div>
