@@ -14,11 +14,11 @@ class dataMasterTableSeeder extends Seeder
       DB::table('data_master')->insert([
           [
             'nama_asset' => 'Tanah',
-            'keteragan' => 'Tetap'
+            'keterangan' => 'Tetap'
           ],
           [
             'nama_asset' => 'Bangunan dan Ruangan',
-            'keteragan'  => 'Tetap'
+            'keterangan'  => 'Tetap'
           ]
       ]);
     }

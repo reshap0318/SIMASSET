@@ -38,7 +38,7 @@ class assetTableSeeder extends Seeder
           'status_sbsn' => '',
           'status_aset_idle'=> '',
           'foto'=> '',
-          'master_id'          => 1
+          'master_id'          => 2
         ]
       ]);
     }

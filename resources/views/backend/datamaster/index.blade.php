@@ -7,11 +7,6 @@
 <div class="x_panel">
   <div class="x_title">
     <h2>Table Data Master</h2>
-    <ul class="nav navbar-right panel_toolbox">
-      {{--@if (Sentinel::getUser()->hasAccess(['aset.create']))--}}
-        <a href="{{route('datamaster.create')}}" class="btn btn-success">New Data Master</a>
-      {{--@endif--}}
-    </ul>
     <div class="clearfix"></div>
   </div>
   <div class="x_content">
@@ -36,13 +31,13 @@
               <td class=" ">{{$dataMaster->keteragan}}</td>
               <td class=" last">
                   {!! Form::open(['route' => ['datamaster.destroy', $dataMaster->id], 'method' => 'delete']) !!}
-                  <a href="{!! route('datamaster.show', [$dataMaster->id]) !!}" class='btn btn-warning'><i class="glyphicon glyphicon-eye-open"></i></a>
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-{{$dataMaster->id}}">Edit</button>
+                  <a href="{!! route('datamaster.show', [$dataMaster->id]) !!}" class='btn btn-warning btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
+                  <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#edit-{{$dataMaster->id}}">Edit</button>
 
                   {{--<a href="{{route('aset.edit', $dataMaster->id)}}" class="btn btn-success btn-xs">edit</a>--}}
                   {{--{!! Form::open(['method'=>'DELETE', 'route' => ['aset.destroy', $dataMaster->id], 'style' => 'display:inline']) !!}--}}
                   {{--{!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs','id'=>'delete-confirm']) !!}--}}
-                  {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                  {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                   {!! Form::close() !!}
               </td>
               @include('backend.datamaster.modal_edit')

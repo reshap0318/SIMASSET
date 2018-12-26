@@ -48,8 +48,17 @@
           <li><a href="{{ route('barang.index') }}"><i class="fa fa-cubes"></i>Barang</a></li>
         @endif
 
-          <li><a href="{{ route('datamaster.index') }}"><i class="fa fa-bookmark  "></i>Aset</a></li>
-
+        @if(Sentinel::getUser()->hasAccess(['datamaster.index']))
+          <li><a><i class="fa fa-bookmark  "></i>Aset <span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
+                <li><a href="{{route('datamaster.index',['aset=Lancar'])}}">Lancar</a></li>
+                <li><a href="{{route('datamaster.index',['aset=Tetap'])}}">Tetap</a></li>
+                @if(Sentinel::getUser()->hasAccess(['datamaster.Create']))
+                  <li><a href="{{route('datamaster.create')}}">New Aset</a></li>
+                @endif
+            </ul>
+          </li>
+        @endif
           <li><a href="{{ url('My-QrCode') }}"><i class="fa fa-qrcode"></i>My QR-Code</a></li>
 
 

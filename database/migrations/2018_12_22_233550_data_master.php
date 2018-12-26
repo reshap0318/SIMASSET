@@ -16,7 +16,7 @@ class DataMaster extends Migration
       Schema::create('data_master', function (Blueprint $table) {
         $table->increments('id');
         $table->string('nama_asset');
-        $table->string('keteragan');
+        $table->string('keterangan');
         $table->timestamps();
       });
     }

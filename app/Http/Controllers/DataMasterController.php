@@ -7,10 +7,17 @@ use Illuminate\Http\Request;
 
 class DataMasterController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $dataMasters = data_master::all();
-        return view('backend.datamaster.index',compact('dataMasters'));
+        if($request->aset == "Lancar"){
+          $dataMasters = data_master::where('keterangan','Lancar')->get();
+          return view('backend.datamaster.index',compact('dataMasters'));
+        }elseif($request->aset == "Tetap"){
+          $dataMasters = data_master::where('keterangan','Tetap')->get();
+          return view('backend.datamaster.index',compact('dataMasters'));
+        }else{
+          return view('frontend.404');
+        }
     }
 
     /**
