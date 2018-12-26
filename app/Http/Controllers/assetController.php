@@ -37,17 +37,22 @@ class assetController extends Controller
       $aset = asset::find($id);
       if($aset){
         //1 tanah
-        if($aset->id == 1){
+        if($aset->master_id == 1){
           $tanah = tanah::where('no_registrasi_aset',$aset->no_registrasi_aset)->first();
+          if(!$tanah){
+
+            return redirect()->back();
+          }
           return view('backend.asset.detail',compact('aset','tanah'));
         }
         //2 bangunan_gedung
-        else if($aset->id == 2){
+        else if($aset->master_id == 2){
+          // dd($aset->no_registrasi_aset);
           $bangunan = bangunan_gedung::where('no_registrasi_aset',$aset->no_registrasi_aset)->first();
           return view('backend.asset.detail',compact('aset','bangunan'));
         }
         //3 belum tau
-        else if($aset->id == 3){
+        else if($aset->master_id == 3){
 
         }
       }

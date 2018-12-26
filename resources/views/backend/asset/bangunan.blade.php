@@ -6,12 +6,13 @@
 			        <div id="map" style="height:300px;background: black;width: 100%"></div>
          </div>
          <div class="col-md-6">
+           <br><br><br>
         		<div class="form-group col-md-12">
         			<div class="col-md-4">
         				{!! Form::label('nama', 'Jumlah Lantai') !!}
         			</div>
         			<div class="col-md-8">
-        				{!! Form::label('nama', ' : ') !!} {{$bangunan->jumlah_lantai}}
+        				{!! Form::label('nama', ' : ') !!} {{$bangunan->jumlah_lantai}} 
         			</div>
         		</div>
 
