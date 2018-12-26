@@ -48,6 +48,10 @@
           <li><a href="{{ route('barang.index') }}"><i class="fa fa-cubes"></i>Barang</a></li>
         @endif
 
+        @if(Sentinel::getUser()->hasAccess(['satker.index']))
+          <li><a href="{{ route('satker.index') }}"><i class="fa fa-building"></i>Satuan Kerja</a></li>
+        @endif
+
         @if(Sentinel::getUser()->hasAccess(['datamaster.index']))
           <li><a><i class="fa fa-bookmark  "></i>Aset <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">

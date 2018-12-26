@@ -56,6 +56,7 @@ Route::group(['middleware' => ['web', 'auth', 'permission'] ], function () {
 
 
   route::resource('barang','barangController');
+  route::resource('satker','satkerController');
 
 	Route::get('layertanah/{id}', 'tanahController@layertanah');
   Route::get('tanah/{id}', 'tanahController@tanah');

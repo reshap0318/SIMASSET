@@ -46,7 +46,7 @@ var centerLokasi; //untuk fungsi CallRoute()
 	function bangunan() //tampil digitasi bangunan
 	{
 	    bangunan = new google.maps.Data();
-	    bangunan.loadGeoJson( '{{url('layerbangunan/'.$bangunan->id)}}' );
+	    bangunan.loadGeoJson( '{{url('gedunglayer/'.$bangunan->id)}}' );
 	    bangunan.setStyle(function(feature){
 
 	    	color = '#ff3300'
