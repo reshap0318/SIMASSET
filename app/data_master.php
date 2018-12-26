@@ -20,5 +20,5 @@ class data_master extends Model
      'kode_asset',
      'keterangan'
   ];
-  
+
 }
