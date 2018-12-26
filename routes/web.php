@@ -57,8 +57,11 @@ Route::group(['middleware' => ['web', 'auth', 'permission'] ], function () {
 
   route::resource('barang','barangController');
 
-	Route::get('layertanah/{id}', 'assetController@layertanah');
-	Route::get('tanahcenter/{id}', 'assetController@tanahcenter');
+	Route::get('layertanah/{id}', 'tanahController@layertanah');
+  Route::get('tanah/{id}', 'tanahController@tanah');
+
+	Route::get('gedunglayer/{id}', 'bangunanController@gedunglayer');
+  Route::get('bangunan/{id}', 'bangunanController@bangunan');
 
 
 });

@@ -20,7 +20,7 @@
             {!! Form::label('inventaris_kode',$aset->barang->nama_barang.' '.$aset->satker->nama_satker) !!}
          </div>
          <div class="col-md-8">
-			<br><br><br><br><br><br>
+			<br><br><br>
 			<div class="form-group col-md-12">
 				<div class="col-md-4">
 					{!! Form::label('nama', 'Nomor Registrasi Aset') !!}
@@ -116,9 +116,11 @@
 
 
 @if($aset->master_id==1)
-	@include('backend.asset.tanah')
+	@include('backend.asset.tanah.detail')
 @elseif($aset->master_id==2)
-  @include('backend.asset.bangunan')
+  @include('backend.asset.bangunan.detail')
 @endif
-<a href="{!! route('datamaster.show', [$aset->master_id]) !!}" class='btn btn-warning'>Kembali</a>
+<div class="text-center">
+  <a href="{!! route('datamaster.show', [$aset->master_id]) !!}" class='btn btn-warning'>Kembali</a>
+</div>
 @endsection

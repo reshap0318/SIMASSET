@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Phaza\LaravelPostgis\Eloquent\PostgisTrait;
 
 class bangunan_gedung extends Model
 {
+  use PostgisTrait;
   protected $table = 'bangunan_gedung';
 
   const CREATED_AT = 'created_at';
@@ -18,8 +20,21 @@ class bangunan_gedung extends Model
 
   protected $fillable = [
      'no_registrasi_aset',
-     'jumlah_lantai'
+     'jumlah_lantai',
+     'geom'
   ];
+
+  protected $postgisFields = [
+        'geom'
+    ];
+
+    protected $postgisTypes = [
+        'geom' => [
+            'geomtype' => 'geometry',
+            'srid' => 0
+        ]
+    ];
+
 
   public function asset($value='')
   {

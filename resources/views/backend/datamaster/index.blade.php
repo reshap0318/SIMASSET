@@ -15,7 +15,6 @@
         <tr class="headings">
           <th class="text-center">No</th>
           <th>Nama</th>
-          <th>keterangan</th>
           <th class="no-link last" colspan="2"><span class="nobr">Ubah / Hapus</span></th>
           <th class="bulk-actions" colspan="7">
             <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
@@ -28,7 +27,6 @@
         @foreach($dataMasters as $dataMaster)
               <td class=" text-center">{{ ++$no }}</td>
               <td class=" ">{{$dataMaster->nama_asset}}</td>
-              <td class=" ">{{$dataMaster->keteragan}}</td>
               <td class=" last">
                   {!! Form::open(['route' => ['datamaster.destroy', $dataMaster->id], 'method' => 'delete']) !!}
                   <a href="{!! route('datamaster.show', [$dataMaster->id]) !!}" class='btn btn-warning btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>

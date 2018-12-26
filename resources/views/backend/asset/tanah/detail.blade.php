@@ -102,9 +102,10 @@ var centerLokasi; //untuk fungsi CallRoute()
 	window.onload = function() {
 	  basemap();
 	  tanah();
+    satutanah();
 	};
 
-	function tanah() //tampil digitasi abk
+	function tanah() //tampil digitasi tanah
 	{
 	    tanah = new google.maps.Data();
 	    tanah.loadGeoJson( "{{url('layertanah/'.$tanah->id)}}" );
@@ -121,6 +122,7 @@ var centerLokasi; //untuk fungsi CallRoute()
 	    });
 	    tanah.setMap(map);
 	}
+
 	function basemap(){
 	    map = new google.maps.Map(document.getElementById('map'), {
 	    zoom: 12,
@@ -128,4 +130,65 @@ var centerLokasi; //untuk fungsi CallRoute()
 	    mapTypeId: google.maps.MapTypeId.ROADMAP,
 	  });
 	}
+
+  function hapusInfo() {
+    for (var i = 0; i < info_windows.length; i++) {
+      info_windows[i].setMap(null);
+    }
+  }
+
+  function hapusmarker() {
+    for (var i = 0; i < markers.length; i++) {
+      markers[i].setMap(null);
+    }
+  }
+
+  function tampilsemuatanah(rows, zoom){ //fungsi cari mesjid berdasarkan nama
+    if(rows==null){
+      alert('Data Tanah Kosong');
+    }
+    for (var i in rows)
+    {
+      var row = rows[i];
+      var id = row.id;
+      var no_registrasi_aset = row.no_registrasi_aset;
+      var latitude = row.latitude ;
+      var longitude = row.longitude ;
+      centerBaru = new google.maps.LatLng(latitude, longitude);
+      marker = new google.maps.Marker({
+        position: centerBaru,
+        icon:'http://localhost/tb_bdl/img/icon/placeholder.png',
+        map: map,
+        animation: google.maps.Animation.DROP,
+      });
+      // console.log(id);
+      // console.log(latitude);
+      // console.log(longitude);
+      markers.push(marker);
+      map.setCenter(centerBaru);
+      detail_info(no_registrasi_aset, centerBaru);
+      map.setZoom(zoom);
+    }
+  }
+
+  function detail_info(no_registrasi_aset, center){  //menampilkan informasi masjid
+    google.maps.event.addListener(marker, "click", function(){
+      infowindow = new google.maps.InfoWindow({
+        position: center,
+        content: 'No Registrasi Asset : '+no_registrasi_aset,
+        pixelOffset: new google.maps.Size(0, -33)
+      });
+      info_windows.push(infowindow);
+      hapusInfo();
+      infowindow.open(map);
+    });
+  }
+
+  function satutanah() {
+    $.ajax({ url: '{{url('tanah/'.$tanah->id)}}', data: "", dataType: 'json', success: function (rows){
+      hapusInfo();
+      hapusmarker();
+      tampilsemuatanah(rows,14);
+    }});
+  }
 </script>

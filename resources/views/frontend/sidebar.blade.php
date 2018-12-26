@@ -53,7 +53,7 @@
             <ul class="nav child_menu">
                 <li><a href="{{route('datamaster.index',['aset=Lancar'])}}">Lancar</a></li>
                 <li><a href="{{route('datamaster.index',['aset=Tetap'])}}">Tetap</a></li>
-                @if(Sentinel::getUser()->hasAccess(['datamaster.Create']))
+                @if(Sentinel::getUser()->hasAccess(['datamaster.create']))
                   <li><a href="{{route('datamaster.create')}}">New Aset</a></li>
                 @endif
             </ul>
