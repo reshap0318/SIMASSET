@@ -3,7 +3,7 @@
   <div class="x_content">
   		<div class="flex">
          <div class="col-md-6 text-center">
-			<div id="map" style="height:300px;background: black;width: 100%"></div>
+			<div id="map" style="height:300px;width: 100%"></div>
          </div>
          <div class="col-md-6">
 			<div class="form-group col-md-12">

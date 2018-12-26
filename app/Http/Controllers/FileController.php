@@ -11,10 +11,10 @@ class FileController extends Controller
     	$lokasi = null;
         if ($type == 'profile-pict') {
             $lokasi = 'img/avatars';
-        }elseif ($type == 'bukti-pict') {
-            $lokasi = 'img/bukti';
+        }elseif ($type == 'aset-pict') {
+            $lokasi = 'img/asets';
         }
-
+        // dd('app/'.$lokasi.'/'.$file_id);
         return response()->file(
                 storage_path('app/'.$lokasi.'/'.$file_id)
             );
