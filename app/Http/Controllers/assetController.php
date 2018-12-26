@@ -7,6 +7,7 @@ use App\asset;
 use App\data_master;
 use App\tanah;
 use App\bangunan_gedung;
+use DB;
 
 class assetController extends Controller
 {
@@ -42,7 +43,8 @@ class assetController extends Controller
         }
         //2 bangunan_gedung
         else if($aset->id == 2){
-          $bangunan_gedung = bangunan_gedung::where('no_registrasi_aset',$aset->no_registrasi_aset)->first();
+          $bangunan = bangunan_gedung::where('no_registrasi_aset',$aset->no_registrasi_aset)->first();
+          return view('backend.asset.detail',compact('aset','bangunan'));
         }
         //3 belum tau
         else if($aset->id == 3){
@@ -52,5 +54,49 @@ class assetController extends Controller
       else{
         return view('frontend.404');
       }
+    }
+
+    public function layertanah($id){
+        if ($id != 'all'){
+            $store = tanah::where('id',$id)->get();
+        }else{
+            $store = tanah::all();
+        }
+        $ret = config('value.t1');
+        $i = 0;
+        foreach ($store as $l){
+            $ret['features'][$i] = config('value.t2');
+            $ret['features'][$i]['geometry'] = $l->geom;
+            $i++;
+        }
+        return response()->json($ret);
+    }
+
+    public function tanahcenter($id)
+    {
+      $centers = null;
+        $center = DB::SELECT(DB::RAW('select st_x(st_centroid(geom)) as x, st_y(st_centroid(geom)) as y from tanah where id='.$id));
+        foreach ($center as $s) {
+            $centers = $s->y.','.$s->x;
+        }
+
+        return response()->json($centers);
+    }
+
+    public function gedunglayer($id)
+    {
+      if ($id != 'all'){
+          $store = bangunan_gedung::where('id',$id)->get();
+      }else{
+          $store = bangunan_gedung::all();
+      }
+      $ret = config('value.t1');
+      $i = 0;
+      foreach ($store as $l){
+          $ret['features'][$i] = config('value.t2');
+          $ret['features'][$i]['geometry'] = $l->geom;
+          $i++;
+      }
+      return response()->json($ret);
     }
 }

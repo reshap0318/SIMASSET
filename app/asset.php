@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class asset extends Model
-{
+{ 
   protected $table = 'asset';
 
   const CREATED_AT = 'created_at';

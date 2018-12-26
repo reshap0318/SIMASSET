@@ -53,5 +53,8 @@ Route::group(['middleware' => ['web', 'auth', 'permission'] ], function () {
   route::resource('aset','assetController');
   route::resource('barang','barangController');
 
+	Route::get('layertanah/{id}', 'assetController@layertanah');
+	Route::get('tanahcenter/{id}', 'assetController@tanahcenter');
+
 
 });

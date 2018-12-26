@@ -3,14 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Phaza\LaravelPostgis\Eloquent\PostgisTrait;
 
 class tanah extends Model
 {
+  use PostgisTrait;
   protected $table = 'tanah';
 
   const CREATED_AT = 'created_at';
   const UPDATED_AT = 'updated_at';
-
+ 
   protected $casts = [
      'no_registrasi_aset'    => 'string',
      'status_dokumen'        => 'string',
@@ -32,8 +34,20 @@ class tanah extends Model
     'tanggal_dokument',
     'foto_dokumen',
     'luas',
-    'luas_tanah_bangunan'
+    'luas_tanah_bangunan',
+    'geom'
   ];
+
+  protected $postgisFields = [
+        'geom'
+    ];
+
+    protected $postgisTypes = [
+        'geom' => [
+            'geomtype' => 'geometry',
+            'srid' => 0
+        ]
+    ];
 
   public function asset($value='')
   {
