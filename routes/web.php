@@ -20,8 +20,6 @@ route::resource('aset','assetController');
 Route::get('qrLogin', ['uses' => 'QrLoginController@qr1']);
 Route::get('qrLogin2', ['uses' => 'QrLoginController@qr2']);
 Route::post('qrLogin', ['uses' => 'QrLoginController@checkUser']);
-//image
-Route::get('avatar/{type}/{file_id}','FileController@image');
 
 Route::group(['middleware' => ['web', 'auth', 'permission'] ], function () {
   Route::get('/', function () {
@@ -64,5 +62,7 @@ Route::group(['middleware' => ['web', 'auth', 'permission'] ], function () {
 	Route::get('gedunglayer/{id}', 'bangunanController@gedunglayer');
   Route::get('bangunan/{id}', 'bangunanController@bangunan');
 
+  //image
+  Route::get('avatar/{type}/{file_id}','FileController@image');
 
 });

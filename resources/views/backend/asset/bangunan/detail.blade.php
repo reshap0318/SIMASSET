@@ -94,7 +94,7 @@ var centerLokasi; //untuk fungsi CallRoute()
       centerBaru = new google.maps.LatLng(latitude, longitude);
       marker = new google.maps.Marker({
         position: centerBaru,
-        icon:'http://localhost/tb_bdl/img/icon/placeholder.png',
+        icon:'{{asset('img/placeholder.png')}}',
         map: map,
         animation: google.maps.Animation.DROP,
       });
