@@ -113,10 +113,12 @@
   </div>
 </div>
 
+
+
 @if($aset->master_id==1)
 	@include('backend.asset.tanah')
 @elseif($aset->master_id==2)
   @include('backend.asset.bangunan')
 @endif
-
+<a href="{!! route('datamaster.show', [$aset->master_id]) !!}" class='btn btn-warning'>Kembali</a>
 @endsection

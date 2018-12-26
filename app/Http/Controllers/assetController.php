@@ -26,10 +26,16 @@ class assetController extends Controller
     {
         if($request->data){
           $data_master = data_master::find($request->data);
-          // return view('backend.asset.create',compact('data_master'));
+            $noReg = asset::pluck('no_registrasi_aset', 'no_registrasi_aset');
+
+           return view('backend.asset.create',compact('data_master','noReg'));
         }else{
           return view('frontend.404');
         }
+    }
+
+    public function store(Request $req){
+
     }
 
     public function show($id)
