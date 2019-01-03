@@ -30,10 +30,10 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
             <section class="login_content">
-              <img src="{{asset('img/unand.png')}}" width="170px" height="100px" alt="">
+              <img src="{{asset('img/unand.png')}}" width="150px" height="150px" alt="">
                 <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
                     {{ csrf_field() }}
-                    <h1>SIM-ASSET UNAND</h1>
+                    <h1>SIM-ASET UNAND</h1>
                     <div>
                         <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" placeholder="Username" value="{{ old('username') }}" required autofocus>
 

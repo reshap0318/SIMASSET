@@ -1,6 +1,6 @@
 <div class="left_col scroll-view">
   <div class="navbar nav_title" style="border: 0;">
-    <a href="{{url('dashboard')}}" class="site_title"><i class="fa fa-paw"></i> <span>SIM-ASSET</span></a>
+    <a href="{{url('dashboard')}}" class="site_title"><i class="fa fa-paw"></i> <span>SIM-ASET</span></a>
   </div>
 
   <div class="clearfix"></div>
@@ -55,7 +55,7 @@
         @if(Sentinel::getUser()->hasAccess(['datamaster.index']))
           <li><a><i class="fa fa-bookmark  "></i>Aset <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-                <li><a href="{{route('datamaster.index',['aset=Lancar'])}}">Lancar</a></li>
+                <li><a href="{{route('datamaster.index',['aset=Lancar'])}}">Tidak Tetap</a></li>
                 <li><a href="{{route('datamaster.index',['aset=Tetap'])}}">Tetap</a></li>
                 @if(Sentinel::getUser()->hasAccess(['datamaster.create']))
                   <li><a href="{{route('datamaster.create')}}">New Aset</a></li>

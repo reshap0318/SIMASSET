@@ -13,9 +13,9 @@ class UserSeeder extends Seeder
     {
          DB::table('users')->insert([
 			    [
-			    		'username'		 => 'admincoy',
+			    		'username'		 => 'admin',
 			    		'email' 		   => 'reshap03@gmail.com',
-			    		'password' 		 => bcrypt('4dm1n#123'),
+			    		'password' 		 => bcrypt('admin'),
 			    		'permissions'  => '{"home.dashboard":true}',
               'nama'         => 'Admin',
 			    		'QRpassword'	 => 'Dammy-CODE-1S4u7lJzehk62xDm3DgYgXXYWtbHE6gSP'
