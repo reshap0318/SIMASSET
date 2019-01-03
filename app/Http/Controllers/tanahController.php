@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\tanah;
+use Carbon\Carbon;
 
 class tanahController extends Controller
 {
@@ -35,6 +36,39 @@ class tanahController extends Controller
           $dataarray[]=array('id'=>$id,'no_registrasi_aset'=>$no_registrasi_aset,'longitude'=>$longitude,'latitude'=>$latitude);
         }
         return response()->json($dataarray);
+    }
+
+    public function store(Request $request){
+        $request->validate([
+          'no_registrasi_aset' => 'required',
+          'status_dokumen' => 'required'
+          'jenis_dokumen' => 'required'
+          'jenis_sertifikat' => 'required'
+          'no_dokumen' => 'required'
+          'tanggal_dokument' => 'required'
+          'luas' => 'required'
+          'geom' => 'required'
+
+        ]);
+
+
+        $tanah = new tanah;
+
+        $tanah->no_registrasi_aset = $request->no_registrasi;
+        $tanah->status_dokumen = $request->status_dokumen;
+        $tanah->no_dokumen = $request->no_dokumen;
+        $tanah->jenis_dokumen = $request->jenis_sertifikat;
+        $tanah->tanggal_dokument = Carbon::now();
+        $tanah->luas = $request->jenis_sertifikat;
+        $tanah->geom = $request->geom;
+        $tanah['geom'] = "MULTIPOLYGON(".$tanah['geom'].")";
+
+
+        if($tanah->save()){
+          return redirect()->route('barang.index');
+        }else{
+
+        }
     }
 
 }

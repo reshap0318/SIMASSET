@@ -35,7 +35,8 @@ class assetController extends Controller
     }
 
     public function store(Request $req){
-
+            //  $c = $request->all();
+            // dd($c);
     }
 
     public function show($id)

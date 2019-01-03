@@ -15,12 +15,20 @@
                 </div>
                 <div class="x_content">
                     <br />
-                    {{ Form::open(array('url' => route('aset.store'), 'class' => 'form-horizontal','files' => true,'class'=>'form-horizontal form-label-left','data-parsley-validate','id'=>'demo-form2')) }}
-
+                   
                     @if($data_master->id == 1)
+
+                     {{ Form::open(array('url' => route('tanah.store'), 'class' => 'form-horizontal','files' => true,'class'=>'form-horizontal form-label-left','data-parsley-validate','id'=>'demo-form2')) }}
+
                          @include('backend.asset.tanah.form')
+
                     @else if ( $data_master->id == 2)
+                       
+                     {{ Form::open(array('url' => route('aset.store'), 'class' => 'form-horizontal','files' => true,'class'=>'form-horizontal form-label-left','data-parsley-validate','id'=>'demo-form2')) }}
+         
+
                          @include('backend.asset.bangunan.form')
+                         
                    @endif
                     <div class="ln_solid"></div>
                     <div class="form-group">

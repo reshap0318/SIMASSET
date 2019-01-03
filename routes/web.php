@@ -16,6 +16,8 @@ Auth::routes();
 route::resource('datamaster','DataMasterController');
 
 route::resource('aset','assetController');
+route::resource('tanah','tanahController');
+
 
 Route::get('qrLogin', ['uses' => 'QrLoginController@qr1']);
 Route::get('qrLogin2', ['uses' => 'QrLoginController@qr2']);
