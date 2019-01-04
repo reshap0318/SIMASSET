@@ -7,7 +7,7 @@
 </div>
 
 <div class="form-group col-sm-6">
-    {!! Form::label('status_dokumen', 'Status Dokumen', ['class' => 'control-label col-md-3 col-sm-6 col-xs-12']) !!}
+    {!! Form::label('status_dokumen', 'Status Dokumen *', ['class' => 'control-label col-md-3 col-sm-6 col-xs-12']) !!}
     <div class="col-md-6 col-sm-6 col-xs-12">
         {!! Form::text('status_dokumen', null, ['class' => 'form-control','class'=>'form-control col-md-7 col-xs-12']) !!}
     </div>
@@ -51,6 +51,15 @@
         {!! Form::number('luas', null, ['class' => 'form-control','class'=>'form-control col-md-7 col-xs-12']) !!}
     </div>
 </div>
+
+
+<div class="form-group col-sm-6">
+    {!! Form::label('luas_tanah_bangunan', 'Luas Tanah Bangunan *', ['class' => 'control-label col-md-3 col-sm-3 col-xs-12']) !!}
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        {!! Form::number('luas_tanah_bangunan', null, ['class' => 'form-control','class'=>'form-control col-md-7 col-xs-12']) !!}
+    </div>
+</div>
+
 
 
 
