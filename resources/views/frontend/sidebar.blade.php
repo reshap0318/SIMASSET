@@ -50,7 +50,41 @@
 
         @if(Sentinel::getUser()->hasAccess(['satker.index']))
           <li><a href="{{ route('satker.index') }}"><i class="fa fa-building"></i>Satuan Kerja</a></li>
+
+
         @endif
+
+        
+        <li><a><i class="fa fa-bookmark  "></i>Transaksi BMN<span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
+                <li><a href="">Perolehan BMN</a></li>
+                <li><a href="">Perubahan BMN</a></li>
+                <li><a href="">Inventaris Dan Penilaian Kembali</a></li>          
+                <li><a href="">Penghapusan BMN</a></li>
+            </ul>
+          </li>
+          
+          <li><a><i class="fa fa-bookmark  "></i>Laporan<span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
+                <li><a href="">Laporan Kondisi Barang </a></li>
+                <li><a href="">Laporan Barang Hilang</a></li>
+                <li><a href="">Laporan Barang Rusak Berat</a></li>
+                <li><a href="">Inventaris Dan Penilaian Kembali</a></li> 
+                <li><a href="">Penghapusan BMN</a></li>
+            </ul>
+          </li>
+          
+          <li><a><i class="fa fa-bookmark  "></i>Buku/Daftar<span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
+                <li><a href="">Buku Barang </a></li>
+                <li><a href="">Buku Barang Bersejarah</a></li>
+               
+            </ul>
+          </li>
+
+          
+
+
 
         @if(Sentinel::getUser()->hasAccess(['datamaster.index']))
           <li><a><i class="fa fa-bookmark  "></i>Aset <span class="fa fa-chevron-down"></span></a>
