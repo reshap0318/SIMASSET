@@ -14,9 +14,10 @@ class DataMaster extends Migration
     public function up()
     {
       Schema::create('data_master', function (Blueprint $table) {
-        $table->increments('id');
+        $table->integer('id')->primary();
         $table->string('nama_asset');
         $table->string('keterangan');
+        $table->integer('turunan_id')->unsigned()->nullable();
         $table->timestamps();
       });
     }

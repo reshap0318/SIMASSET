@@ -13,12 +13,9 @@ class dataMasterTableSeeder extends Seeder
     {
       DB::table('data_master')->insert([
           [
+            'id'         => '1',
             'nama_asset' => 'Tanah',
             'keterangan' => 'Tetap'
-          ],
-          [
-            'nama_asset' => 'Bangunan dan Ruangan',
-            'keterangan'  => 'Tetap'
           ]
       ]);
     }

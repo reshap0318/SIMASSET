@@ -7,97 +7,95 @@ use Illuminate\Http\Request;
 
 class DataMasterController extends Controller
 {
+
     public function index(Request $request)
     {
-        if($request->aset == "Lancar"){
-          $dataMasters = data_master::where('keterangan','Lancar')->get();
-          return view('backend.datamaster.index',compact('dataMasters'));
-        }elseif($request->aset == "Tetap"){
-          $dataMasters = data_master::where('keterangan','Tetap')->get();
-          return view('backend.datamaster.index',compact('dataMasters'));
+      $request->session()->put('statis', $request->aset);
+      $aset = $request->aset;
+        if($aset == "Lancar"){
+          $datamasters = data_master::where('keterangan','Lancar')->orderby('id','asc')->get();
+          return view('backend.datamaster.index',compact('datamasters','aset'));
+        }elseif($aset == "Tetap"){
+          $datamasters = data_master::where('keterangan','Tetap')->orderby('id','asc')->get();
+          // dd($datamasters);
+          return view('backend.datamaster.index',compact('datamasters','aset'));
         }else{
           return view('frontend.404');
         }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
+
+    public function create(Request $request)
     {
-        //
+      $aset = $request->session()->get('statis');
+       $id = $request->id;
+       if($id){
+
+       }else{
+         $id = null;
+       }
+       return view('backend.datamaster.create',compact('id','aset'));
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
-    public function store()
+    public function store(Request $request)
     {
-        //
+        $request->validate([
+          'id'=> 'required',
+          'nama_asset' => 'required',
+          'keterangan' => 'required',
+        ]);
+
+        $ada = data_master::where('id',$request->id0.$request->id)->first();
+        if($ada){
+          return redirect()->back();
+        }
+
+        $datamaster = new data_master;
+        $datamaster->id = $request->id0.$request->id;
+        $datamaster->nama_asset = $request->nama_asset;
+        $datamaster->keterangan = $request->keterangan;
+        $datamaster->turunan_id = $request->id0;
+        try {
+          $datamaster->save();
+          return  redirect()->route('datamaster.index',['aset='.$request->keterangan]);
+        } catch (\Exception $e) {
+          return redirect()->back();
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
     public function show($id)
     {
         $data = data_master::find($id)->id;
         return redirect(action('assetController@index', ['data' => $data]));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
     public function edit($id)
     {
-        $data = data_master::find($id);
-        dd($data);
+        return redirect()->back();
+        $aset = $request->session()->get('statis');
+        $datamaster = data_master::where('id',$id)->first();
+        $id = $datamaster->turunan_id;
 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
     public function update($id)
     {
         $data = data_master::find($id);
         dd($data);
-//        return view('backend.dataMaster.index',compact('role','user','action'));
+//        return view('backend.datamaster.index',compact('role','user','action'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
     public function destroy($id)
     {
-        $data = data_master::find($id);
+      try {
+          $data = data_master::find($id);
+          $data->delete();
+          return redirect()->back();
 
-        if (empty($data)) {
-            Flash::error('data not found');
+      } catch (\Exception $e) {
+          return redirect()->back();
+      }
 
-            return redirect(route('datamaster.index'));
-        }
-
-//        $data->delete($id);
-
-//        Flash::success('Info deleted successfully.');
-
-        return redirect(route('datamaster.index'));
     }
 }

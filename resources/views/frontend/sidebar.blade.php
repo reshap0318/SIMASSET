@@ -27,7 +27,7 @@
   <!-- sidebar menu -->
   <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
     <div class="menu_section">
-      <h3>General</h3>
+      <h3>Admin</h3>
       <ul class="nav side-menu">
         @if (Sentinel::getUser()->hasAccess(['user.index','role.index']))
           <li><a><i class="fa fa-users"></i>Users Management <span class="fa fa-chevron-down"></span></a>
@@ -79,12 +79,27 @@
             </ul>
           </li>
         @endif
-          <li><a href="{{ url('My-QrCode') }}"><i class="fa fa-qrcode"></i>My QR-Code</a></li>
-
-
-
       </ul>
-
+    </div>
+    <div class="menu_section">
+      <h3>General</h3>
+      <ul class="nav side-menu">
+          <li><a href="{{ url('My-QrCode') }}"><i class="fa fa-qrcode"></i>My QR-Code</a></li>
+      </ul>
+    </div>
+    <div class="menu_section">
+      <h3>Buku Daftar</h3>
+      <ul class="nav side-menu">
+          <li><a><i class="fa fa-book "></i>Buku Daftar <span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
+                <li><a href="{{route('datamaster.index',['aset=Lancar'])}}">Buku Barang</a></li>
+                <li><a>Kartu Inventaris Barang <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" id="menukib">
+                  </ul>
+                </li>
+            </ul>
+          </li>
+      </ul>
     </div>
 
   </div>
