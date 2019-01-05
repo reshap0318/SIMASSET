@@ -12,13 +12,22 @@ class data_master extends Model
   const UPDATED_AT = 'updated_at';
 
   protected $casts = [
-     'kode_asset' => 'string',
+     'id' => 'string',
+     'nama_asset' => 'string',
      'keterangan' => 'string',
+     'turunan_id' => 'string',
   ];
 
   protected $fillable = [
+     'id',
      'kode_asset',
-     'keterangan'
+     'keterangan',
+     'turunan_id'
   ];
+
+  public function rumpun($value='')
+  {
+      return $this->belongsTo(data_master::class, 'id', 'turunan_id');
+  }
 
 }

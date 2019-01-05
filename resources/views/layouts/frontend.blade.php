@@ -115,6 +115,19 @@
     <script src="{{ URL::asset('/gantela/vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ URL::asset('/gantela/vendors/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
     <script type="text/javascript">
+        $.ajax({
+          url: "{{url('menu')}}", data: "", dataType: 'json', success: function(rows)
+              {
+                for (var i in rows)
+                {
+                  var row = rows[i];
+                  var menu=row.nama_asset;
+                  $('#menukib').append('<li> <a href="#">KIB '+menu+'</a> </li>');
+                }
+            }
+          });
+    </script>
+    <script type="text/javascript">
       $.ajaxSetup({
           headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

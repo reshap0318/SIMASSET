@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use DB;
 use Sentinel;
+use App\data_master;
 
 class HomeController extends Controller
 {
@@ -25,5 +26,11 @@ class HomeController extends Controller
     public function dashboard($value='')
     {
         return view('dashboard');
+    }
+
+    public function menu(Request $request)
+    {
+      $menu = data_master::wherenull('turunan_id')->get();
+      return $menu;
     }
 }

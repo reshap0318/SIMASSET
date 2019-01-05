@@ -13,12 +13,6 @@
 
 Auth::routes();
 
-route::resource('datamaster','DataMasterController');
-
-route::resource('aset','assetController');
-route::resource('tanah','tanahController');
-
-
 Route::get('qrLogin', ['uses' => 'QrLoginController@qr1']);
 Route::get('qrLogin2', ['uses' => 'QrLoginController@qr2']);
 Route::post('qrLogin', ['uses' => 'QrLoginController@checkUser']);
@@ -66,5 +60,10 @@ Route::group(['middleware' => ['web', 'auth', 'permission'] ], function () {
 
   //image
   Route::get('avatar/{type}/{file_id}','FileController@image');
+
+  route::resource('datamaster','DataMasterController');
+  route::resource('aset','assetController');
+  route::resource('tanah','tanahController');
+  route::get('menu','HomeController@menu');
 
 });

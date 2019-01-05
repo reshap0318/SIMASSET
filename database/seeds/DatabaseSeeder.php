@@ -15,8 +15,8 @@ class DatabaseSeeder extends Seeder
         $this->call(barangTableSeeder::class);
         $this->call(dataMasterTableSeeder::class);
         $this->call(satkerTableSeeder::class);
-        $this->call(assetTableSeeder::class);
-        $this->call(asetBangunanTableSeeder::class);
-        $this->call(asetTanahTableSeeder::class);
+        // $this->call(assetTableSeeder::class);
+        // $this->call(asetBangunanTableSeeder::class);
+        // $this->call(asetTanahTableSeeder::class);
     }
 }
