@@ -28,18 +28,32 @@
           </th>
         </tr>
       </thead>
-        <?php $no=0?>
+        <?php $no=0;
+        function kasihtitik($id)
+        {
+            $coba = str_split($id);
+            $s = null;
+            for($i=0;$i<count($coba);$i++){
+              if($i%2!=0 || $i==count($coba)-1){
+                $s = $s.$coba[$i];
+              }else{
+                $s = $s.$coba[$i].'.';
+              }
+            }
+
+            return $s;
+        }?>
       <tbody>
         @foreach($data as $dat)
               <td class=" text-center">{{ ++$no }}</td>
-              <td class=" ">{{$dat->no_registrasi_aset}}</td>
+              <td class=" ">{{kasihtitik($dat->no_registrasi_aset)}}</td>
               <td class=" ">{{$dat->merek}}</td>
               <td class=" ">{{$dat->satker->nama_satker}}</td>
               <td class=" last">
                 @if (Sentinel::getUser()->hasAccess(['aset.show']))
                   <a href="{{route('aset.show', $dat->id)}}" class="btn btn-success btn-xs">View</a>
                 @endif
-              
+
                 @if (Sentinel::getUser()->hasAccess(['aset.destroy']))
                   {!! Form::open(['method'=>'DELETE', 'route' => ['aset.destroy', $dat->id], 'style' => 'display:inline']) !!}
                   {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs','id'=>'delete-confirm']) !!}
