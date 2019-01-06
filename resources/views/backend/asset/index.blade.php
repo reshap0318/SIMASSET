@@ -39,9 +39,7 @@
                 @if (Sentinel::getUser()->hasAccess(['aset.show']))
                   <a href="{{route('aset.show', $dat->id)}}" class="btn btn-success btn-xs">View</a>
                 @endif
-                @if (Sentinel::getUser()->hasAccess(['aset.edit']))
-                  <a href="{{route('aset.edit', $dat->id)}}" class="btn btn-success btn-xs">edit</a>
-                @endif
+              
                 @if (Sentinel::getUser()->hasAccess(['aset.destroy']))
                   {!! Form::open(['method'=>'DELETE', 'route' => ['aset.destroy', $dat->id], 'style' => 'display:inline']) !!}
                   {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs','id'=>'delete-confirm']) !!}
