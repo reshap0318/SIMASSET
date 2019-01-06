@@ -114,7 +114,10 @@
     <!-- datatables -->
     <script src="{{ URL::asset('/gantela/vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ URL::asset('/gantela/vendors/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
+      @yield('scripts')
     <script type="text/javascript">
+      var server="<?php echo Request::root(); ?>";
+      console.log(server);
         $.ajax({
           url: "{{url('menu')}}", data: "", dataType: 'json', success: function(rows)
               {
@@ -122,7 +125,7 @@
                 {
                   var row = rows[i];
                   var menu=row.nama_asset;
-                  $('#menukib').append('<li> <a href="#">KIB '+menu+'</a> </li>');
+                  $('#menukib').append('<li> <a href="'+server+'/aset?data='+menu+'">KIB '+menu+'</a> </li>');
                 }
             }
           });
@@ -134,7 +137,5 @@
           }
         });
     </script>
-
-    @yield('scripts')
   </body>
 </html>

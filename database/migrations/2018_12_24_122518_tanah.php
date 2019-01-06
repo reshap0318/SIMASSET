@@ -26,7 +26,7 @@ class Tanah extends Migration
              $table->integer('luas_tanah_bangunan');
              $table->multipolygon('geom', "GEOMETRY", 0)->nullable();
 
-             $table->foreign('no_registrasi_aset')->references('no_registrasi_aset')->on('asset');
+             $table->foreign('no_registrasi_aset')->references('no_registrasi_aset')->on('asset')->onDelete('cascade')->onUpdate('cascade');
              $table->timestamps();
          });
      }

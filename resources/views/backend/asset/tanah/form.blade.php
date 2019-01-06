@@ -1,12 +1,5 @@
 
-<div class="form-group col-sm-6">
-    {!! Form::label('no_gegistrasi', 'No Registrasi *', ['class' => 'control-label col-md-3 col-sm-6 col-xs-12']) !!}
-    <div class="col-md-6 col-sm-6 col-xs-12">
-        {!! Form::select('no_registrasi', $noReg,null, ['class' => 'form-control','class'=>'form-control col-md-7 col-xs-12']) !!}
-    </div>
-</div>
-
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('status_dokumen', 'Status Dokumen *', ['class' => 'control-label col-md-3 col-sm-6 col-xs-12']) !!}
     <div class="col-md-6 col-sm-6 col-xs-12">
         {!! Form::text('status_dokumen', null, ['class' => 'form-control','class'=>'form-control col-md-7 col-xs-12']) !!}
@@ -14,7 +7,7 @@
 </div>
 
 
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('jenis_dokumen', 'Jenis Dokumen *', ['class' => 'control-label col-md-3 col-sm-6 col-xs-12']) !!}
     <div class="col-md-6 col-sm-6 col-xs-12">
         {!! Form::text('jenis_dokumen', null, ['class' => 'form-control','class'=>'form-control col-md-7 col-xs-12']) !!}
@@ -22,14 +15,14 @@
 </div>
 
 
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('no_dokumen', 'No Dokumen *', ['class' => 'control-label col-md-3 col-sm-6 col-xs-12']) !!}
     <div class="col-md-6 col-sm-6 col-xs-12">
         {!! Form::text('no_dokumen', null, ['class' => 'form-control','class'=>'form-control col-md-7 col-xs-12']) !!}
     </div>
 </div>
 
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('jenis_sertifikat', 'Jenis Sertifikat *', ['class' => 'control-label col-md-3 col-sm-6 col-xs-12']) !!}
     <div class="col-md-6 col-sm-6 col-xs-12">
         {!! Form::text('jenis_sertifikat', null, ['class' => 'form-control','class'=>'form-control col-md-7 col-xs-12']) !!}
@@ -37,7 +30,7 @@
 </div>
 
 
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('tanggal_dokumen', 'Tanggal Dokumen *', ['class' => 'control-label col-md-3 col-sm-6 col-xs-12']) !!}
     <div class="col-md-6 col-sm-6 col-xs-12">
         {!! Form::date('tanggal_dokumen', null, ['class' => 'form-control','class'=>'form-control col-md-7 col-xs-12']) !!}
@@ -45,7 +38,7 @@
 </div>
 
 
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('luas', 'Luas *', ['class' => 'control-label col-md-3 col-sm-6 col-xs-12']) !!}
     <div class="col-md-6 col-sm-6 col-xs-12">
         {!! Form::number('luas', null, ['class' => 'form-control','class'=>'form-control col-md-7 col-xs-12']) !!}
@@ -53,28 +46,30 @@
 </div>
 
 
-<div class="form-group col-sm-6">
+<div class="form-group">
     {!! Form::label('luas_tanah_bangunan', 'Luas Tanah Bangunan *', ['class' => 'control-label col-md-3 col-sm-3 col-xs-12']) !!}
     <div class="col-md-6 col-sm-6 col-xs-12">
         {!! Form::number('luas_tanah_bangunan', null, ['class' => 'form-control','class'=>'form-control col-md-7 col-xs-12']) !!}
     </div>
 </div>
 
-
-
-
+<div class="form-group">
+  {!! Form::label('foto', 'Foto', ['class' => 'control-label col-md-3 col-sm-3 col-xs-12']) !!}
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    {!! Form::file('foto', null, ['class'=>'form-control']) !!}
+  </div>
+</div>
 
 <div class=" col-sm-12">
     <b><h4 style="margin-top: 20px;text-align: center;">Digitas Tanah</h1></b>
-</div> 
+</div>
 
 <!-- Geom Field -->
-<div class="form-group col-sm-12">
+<div class="form-group text-center">
     <div id="map-content" style="width:100%;height:420px; z-index:50"></div>
     <br>
     <a class="btn btn-primary btn-sm" id="delete-button">Delete</a>
     <br> <br>
-    <label class="col-sm-12">Geom</label>
     <div class="col-sm-12">
         {!! Form::text('geom', null, ['class' => 'form-control','id'=>'geom']) !!}
     </div>
@@ -82,6 +77,24 @@
 
 
 @section('scripts')
+
+<script>
+    $(document).on('change','#master',function(){
+        var data=document.getElementById("master").options[document.getElementById("master").selectedIndex].value;
+        $('#kode_master').html("");
+        var coba = data.split('');
+        var s = '';
+        for(var i=0;i<coba.length;i++){
+          if(i%2!=0 || i>6){
+            s = s+coba[i];
+          }else{
+            s = s+coba[i]+'.';
+          }
+        }
+        $('#kode_master').append(s);
+    });
+</script>
+
     <script>
         var drawingManager;
         var selectedShape;

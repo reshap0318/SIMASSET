@@ -74,13 +74,9 @@
     <div class="menu_section">
       <h3>Buku Daftar</h3>
       <ul class="nav side-menu">
-          <li><a><i class="fa fa-book "></i>Buku Daftar <span class="fa fa-chevron-down"></span></a>
-            <ul class="nav child_menu">
-                <li><a href="{{route('datamaster.index',['aset=Lancar'])}}">Buku Barang</a></li>
-                <li><a>Kartu Inventaris Barang <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu" id="menukib">
-                  </ul>
-                </li>
+          <li><a href="{{route('datamaster.index',['aset=Lancar'])}}"><i class="fa fa-book "></i>Buku Barang</a></li>
+          <li><a><i class="fa fa-folder-open"></i>Kartu Inventaris Barang <span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu" id="menukib">
             </ul>
           </li>
       </ul>

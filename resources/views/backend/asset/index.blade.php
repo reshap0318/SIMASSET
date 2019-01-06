@@ -9,7 +9,7 @@
     <h2>Table Asset {{$data_master->nama_asset}}</h2>
     <ul class="nav navbar-right panel_toolbox">
       @if (Sentinel::getUser()->hasAccess(['aset.create']))
-        <a href="{{route('aset.create',['data='.$data_master->id])}}" class="btn btn-success">New aset {{$data_master->nama_asset}}</a>
+        <a href="{{route('aset.create',['data='.$data_master->nama_asset])}}" class="btn btn-success">New aset {{$data_master->nama_asset}}</a>
       @endif
     </ul>
     <div class="clearfix"></div>
@@ -30,20 +30,20 @@
       </thead>
         <?php $no=0?>
       <tbody>
-        @foreach($asets as $aset)
+        @foreach($data as $dat)
               <td class=" text-center">{{ ++$no }}</td>
-              <td class=" ">{{$aset->no_registrasi_aset}}</td>
-              <td class=" ">{{$aset->merek}}</td>
-              <td class=" ">{{$aset->satker->nama_satker}}</td>
+              <td class=" ">{{$dat->no_registrasi_aset}}</td>
+              <td class=" ">{{$dat->merek}}</td>
+              <td class=" ">{{$dat->satker->nama_satker}}</td>
               <td class=" last">
                 @if (Sentinel::getUser()->hasAccess(['aset.show']))
-                  <a href="{{route('aset.show', $aset->id)}}" class="btn btn-success btn-xs">View</a>
+                  <a href="{{route('aset.show', $dat->id)}}" class="btn btn-success btn-xs">View</a>
                 @endif
                 @if (Sentinel::getUser()->hasAccess(['aset.edit']))
-                  <a href="{{route('aset.edit', $aset->id)}}" class="btn btn-success btn-xs">edit</a>
+                  <a href="{{route('aset.edit', $dat->id)}}" class="btn btn-success btn-xs">edit</a>
                 @endif
                 @if (Sentinel::getUser()->hasAccess(['aset.destroy']))
-                  {!! Form::open(['method'=>'DELETE', 'route' => ['aset.destroy', $aset->id], 'style' => 'display:inline']) !!}
+                  {!! Form::open(['method'=>'DELETE', 'route' => ['aset.destroy', $dat->id], 'style' => 'display:inline']) !!}
                   {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs','id'=>'delete-confirm']) !!}
                   {!! Form::close() !!}
                 @endif

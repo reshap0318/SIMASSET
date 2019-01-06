@@ -114,12 +114,12 @@
 
 
 
-@if($aset->master_id==1)
+@if($aset->master->kepala->kepala->kepala->kepala->id==1)
 	@include('backend.asset.tanah.detail')
-@elseif($aset->master_id==2)
+@elseif($aset->master->kepala->kepala->kepala->kepala->id==2)
   @include('backend.asset.bangunan.detail')
 @endif
 <div class="text-center">
-  <a href="{!! route('datamaster.show', [$aset->master_id]) !!}" class='btn btn-warning'>Kembali</a>
+  <a href="{!! route('aset.index',['data=Tanah']) !!}" class='btn btn-warning'>Kembali</a>
 </div>
 @endsection

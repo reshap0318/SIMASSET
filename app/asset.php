@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class asset extends Model
-{ 
+{
   protected $table = 'asset';
 
   const CREATED_AT = 'created_at';
@@ -20,7 +20,7 @@ class asset extends Model
     'kondisi'               => 'integer',
     'merek'                 => 'string',
     'tercatat_dalam'        => 'string',
-    'status_absn'           => 'string',
+    'status_sbsn'           => 'string',
     'status_aset_idle'      => 'string',
     'master_id'             => 'integer',
   ];
@@ -34,7 +34,7 @@ class asset extends Model
      'kondisi',
      'merek',
      'tercatat_dalam',
-     'status_absn',
+     'status_sbsn',
      'status_aset_idle',
      'foto',
      'master_id'
