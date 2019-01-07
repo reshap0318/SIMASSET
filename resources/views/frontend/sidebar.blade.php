@@ -50,7 +50,23 @@
 
         @if(Sentinel::getUser()->hasAccess(['satker.index']))
           <li><a href="{{ route('satker.index') }}"><i class="fa fa-building"></i>Satuan Kerja</a></li>
+
+
         @endif
+
+        
+      
+          
+          <li><a><i class="fa fa-bookmark  "></i>Buku/Daftar
+            <span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
+                
+            </ul>
+          </li>
+
+          
+
+
 
         @if(Sentinel::getUser()->hasAccess(['datamaster.index']))
           <li><a><i class="fa fa-bookmark  "></i>Aset <span class="fa fa-chevron-down"></span></a>
