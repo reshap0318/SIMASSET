@@ -79,7 +79,7 @@ class assetController extends Controller
       $aset = asset::find($id);
       if($aset->master->kepala->kepala->kepala->kepala){
         //1 tanah
-        if($aset->master->kepala->kepala->kepala->kepala->id == 1){
+        if(strtolower($aset->master->kepala->kepala->kepala->kepala->nama_asset) == strtolower('tanah')){
           $tanah = tanah::where('no_registrasi_aset',$aset->no_registrasi_aset)->first();
           if(!$tanah){
 
@@ -88,13 +88,13 @@ class assetController extends Controller
           return view('backend.asset.detail',compact('aset','tanah'));
         }
         //2 bangunan_gedung
-        else if($aset->master->kepala->kepala->kepala->kepala->id == 2){
+        else if(strtolower($aset->master->kepala->kepala->kepala->kepala->nama_asset) == strtolower('bangunan')){
           // dd($aset->no_registrasi_aset);
           $bangunan = bangunan_gedung::where('no_registrasi_aset',$aset->no_registrasi_aset)->first();
           return view('backend.asset.detail',compact('aset','bangunan'));
         }
         //3 belum tau
-        else if($aset->master->kepala->kepala->kepala->kepala->id == 3){
+        else if(strtolower($aset->master->kepala->kepala->kepala->kepala->nama_asset) == strtolower('dll')){
 
         }
       }
@@ -108,7 +108,7 @@ class assetController extends Controller
       $asset = asset::find($id);
       try {
           $asset->delete();
-          return redirect()->route('aset.index',['data=Tanah']);
+          return redirect()->route('aset.index',['data='.$asset->nama_asset]);
       } catch (\Exception $e) {
           return redirect()->back();
       }

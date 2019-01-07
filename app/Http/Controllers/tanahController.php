@@ -80,7 +80,7 @@ class tanahController extends Controller
               $tanah->geom = $request->geom;
               $tanah['geom'] = "MULTIPOLYGON(".$tanah['geom'].")";
               $tanah->save();
-              return redirect()->route('aset.index',['data=Tanah']);
+              return redirect()->route('aset.index',['data='.$aset->master->kepala->kepala->kepala->kepala->nama_asset]);
           }
         } catch (\Exception $e) {
             return redirect()->back();

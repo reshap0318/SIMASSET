@@ -114,12 +114,12 @@
 
 
 
-@if($aset->master->kepala->kepala->kepala->kepala->id==1)
+@if(strtolower($aset->master->kepala->kepala->kepala->kepala->nama_asset)==strtolower('tanah'))
 	@include('backend.asset.tanah.detail')
-@elseif($aset->master->kepala->kepala->kepala->kepala->id==2)
+@elseif(strtolower($aset->master->kepala->kepala->kepala->kepala->id)==strtolower('bangunan'))
   @include('backend.asset.bangunan.detail')
 @endif
 <div class="text-center">
-  <a href="{!! route('aset.index',['data=Tanah']) !!}" class='btn btn-warning'>Kembali</a>
+  <a href="{!! route('aset.index',['data='.$aset->master->kepala->kepala->kepala->kepala->nama_asset]) !!}" class='btn btn-warning'>Kembali</a>
 </div>
 @endsection
