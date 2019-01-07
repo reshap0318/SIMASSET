@@ -27,7 +27,17 @@ class data_master extends Model
 
   public function rumpun($value='')
   {
-      return $this->belongsTo(data_master::class, 'id', 'turunan_id');
+      return $this->hasMany(data_master::class, 'turunan_id', 'id');
+  }
+
+  public function kepala($value='')
+  {
+      return $this->belongsTo(data_master::class, 'turunan_id', 'id');
+  }
+
+  public function aset()
+  {
+      return $this->hasMany(asset::class, 'master_id', 'id');;
   }
 
 }
