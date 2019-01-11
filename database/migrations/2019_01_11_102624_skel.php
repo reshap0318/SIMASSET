@@ -15,7 +15,7 @@ class Skel extends Migration
     {
         Schema::create('skel', function (Blueprint $table) {
             $table->increments('id_skel');
-            $table->integer('id_kel');
+            $table->integer('id_kel')->unsigned();
             $table->string('kd_skel');
             $table->string('ur_skel');
             $table->foreign('id_kel')->references('id_kel')->on('kel');

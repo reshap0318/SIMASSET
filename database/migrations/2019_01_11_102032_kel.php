@@ -15,7 +15,7 @@ class Kel extends Migration
     {
         Schema::create('kel', function (Blueprint $table) {
             $table->increments('id_kel');
-            $table->integer('id_bid');
+            $table->integer('id_bid')->unsigned();
             $table->string('kd_kel');
             $table->string('ur_kel');
             $table->foreign('id_bid')->references('id_bid')->on('bid');

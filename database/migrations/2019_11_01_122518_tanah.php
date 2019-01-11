@@ -16,7 +16,7 @@ class Tanah extends Migration
          Schema::create('tanah', function (Blueprint $table) {
              $table->increments('id');
              $table->string('no_registrasi_aset');
-             $table->integer('kd_brg');
+             $table->integer('kd_brg')->unsigned();
              $table->string('status_dokumen');
              $table->string('jenis_dokumen');
              $table->string('jenis_sertifikat');
@@ -36,7 +36,7 @@ class Tanah extends Migration
              $table->string('batas_s');
              $table->string('batas_t');
              $table->string('batas_b');
-             $table->integer('kd_trn');
+             $table->integer('kd_trn')->unsigned();
              $table->string('sumber');
              $table->string('dari');
              $table->string('surat1');
@@ -49,8 +49,8 @@ class Tanah extends Migration
              $table->date('tgl_prl');
              $table->date('tgl_buku');
 
-             $table->integer('id_kepemilikan');
-             $table->integer('id_status');
+             $table->integer('id_kepemilikan')->unsigned();
+             $table->integer('id_status')->unsigned();
 
              $table->integer('rph_aset');
              $table->multipolygon('geom', "GEOMETRY", 0)->nullable();

@@ -14,6 +14,7 @@ class Bid extends Migration
     public function up()
     {
         Schema::create('bid', function (Blueprint $table) {
+            $table->increments('id_bid');
             $table->string('kd_bid');
             $table->string('kd_gol');
             $table->string('ur_bid');
