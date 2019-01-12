@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\asset;
 use App\data_master;
-use App\tanah;
+use App\tanah_old as tanah;
 use App\bangunan_gedung;
 use DB;
 use App\barang;
