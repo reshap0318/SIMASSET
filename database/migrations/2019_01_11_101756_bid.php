@@ -18,6 +18,7 @@ class Bid extends Migration
             $table->string('kd_bid');
             $table->string('kd_gol');
             $table->string('ur_bid');
+            
             $table->foreign('kd_gol')->references('kd_gol')->on('gol');
         });
     }

@@ -18,6 +18,7 @@ class Skel extends Migration
             $table->integer('id_kel')->unsigned();
             $table->string('kd_skel');
             $table->string('ur_skel');
+            
             $table->foreign('id_kel')->references('id_kel')->on('kel');
         });
     }

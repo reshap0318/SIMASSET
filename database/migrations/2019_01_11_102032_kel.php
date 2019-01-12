@@ -18,6 +18,7 @@ class Kel extends Migration
             $table->integer('id_bid')->unsigned();
             $table->string('kd_kel');
             $table->string('ur_kel');
+            
             $table->foreign('id_bid')->references('id_bid')->on('bid');
         });
     }
