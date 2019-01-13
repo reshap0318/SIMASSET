@@ -16,7 +16,7 @@ class Kel extends Migration
         Schema::create('kel', function (Blueprint $table) {
             $table->string('kd_bid')->nullable();
             $table->string('kd_gol')->nullable();
-            $table->string('kd_kel')->nullable();
+            $table->string('kd_kel')->nullable()->index();
             $table->string('ur_kel');
 
             $table->primary(['kd_bid', 'kd_gol','kd_kel']);

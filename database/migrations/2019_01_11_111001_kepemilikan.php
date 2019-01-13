@@ -14,7 +14,7 @@ class Kepemilikan extends Migration
     public function up()
     {
         Schema::create('kepemilikan', function (Blueprint $table) {
-            $table->increments('id_kepemilikan');
+            $table->string('id_kepemilikan')->primary();
             $table->string('ur_milik');
         });
     }
