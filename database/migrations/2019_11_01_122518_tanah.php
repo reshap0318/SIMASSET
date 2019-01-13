@@ -56,10 +56,11 @@ class Tanah extends Migration
              $table->multipolygon('geom', "GEOMETRY", 0)->nullable()->nullable();
 
 //             $table->foreign('no_registrasi_aset')->references('no_registrasi_aset')->on('asset')->onDelete('cascade')->onUpdate('cascade');
-             $table->foreign('kd_brg')->references('kd_brg')->on('sskel');
-             $table->foreign('kd_trn')->references('kd_trn')->on('transaksi');
-             $table->foreign('id_kepemilikan')->references('id_kepemilikan')->on('kepemilikan');
-             $table->foreign('id_status')->references('id_status')->on('status')->onDelete('cascade')->onUpdate('cascade');
+
+//             $table->foreign('kd_brg')->references('kd_brg')->on('sskel');
+//             $table->foreign('kd_trn')->references('kd_trn')->on('transaksi');
+//             $table->foreign('id_kepemilikan')->references('id_kepemilikan')->on('kepemilikan');
+//             $table->foreign('id_status')->references('id_status')->on('status')->onDelete('cascade')->onUpdate('cascade');
              $table->timestamps();
          });
      }
