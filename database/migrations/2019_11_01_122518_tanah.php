@@ -36,7 +36,7 @@ class Tanah extends Migration
              $table->string('batas_s')->nullable();
              $table->string('batas_t')->nullable();
              $table->string('batas_b')->nullable();
-             $table->integer('kd_trn')->nullable()->index();
+             $table->string('kd_trn')->nullable()->index();
              $table->string('sumber')->nullable();
              $table->string('dari')->nullable();
              $table->string('surat1')->nullable();
