@@ -101,7 +101,7 @@ class MigrationCartalystSentinel extends Migration
             $table->string('password');
             $table->string('avatar')->nullable();
             $table->string('QRpassword')->default(str_random(40));
-            $table->text('permissions')->default('{"home.dashboard":true}');
+            $table->text('permissions');
             $table->timestamp('last_login')->nullable();
             $table->timestamps();
             $table->engine = 'InnoDB';

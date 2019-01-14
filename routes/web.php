@@ -63,7 +63,7 @@ Route::group(['middleware' => ['web', 'auth', 'permission'] ], function () {
 
   route::resource('datamaster','DataMasterController');
   route::resource('aset','assetController');
-  route::resource('tanah','tanahController');
+  route::resource('tanah','tanaholdController');
   route::get('menu','HomeController@menu');
 
 });
