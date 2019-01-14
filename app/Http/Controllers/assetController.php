@@ -13,47 +13,66 @@ use App\satker;
 
 class assetController extends Controller
 {
+
+
+
+
     public function index(Request $request)
     {
-        if($request->data){
-          $data_master = data_master::where('nama_asset',$request->data)->orderby('id','asc')->first();
-          // dd($data_master->rumpun->rumpun->rumpun->rumpun->nama_asset);
-          /*
-          list tanah didapatkan dari kode barang, atau dari menu aset, bagian yang diseleksi dan table databasenya data_master fungsinya disini
-          untuk create, cuman disini dimasukan kedalam session agar bisa di pakai di create nantinya
-          */
-          $list =[];
-          /*
-            data merupakan array yang berisikan asset berdasarkan tanah table nya disini adalah table asset + tanah
-          */
-          $data = [];
-          if($data_master->rumpun){
-            foreach ($data_master->rumpun as $masters) {
-              if($masters->rumpun){
-                foreach ($masters->rumpun as $master) {
-                  if($master->rumpun){
-                    foreach ($master->rumpun as $mast) {
-                      if($mast->rumpun){
-                        foreach ($mast->rumpun as $mas) {
-                          $list = $list+[$mas->id => $mas->nama_asset];
-                          if($mas->aset){
-                            foreach ($mas->aset as $aset) {
-                              array_push($data,$aset);
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-          $request->session()->put('list', collect($list));
-          return view('backend.asset.index',compact('data','data_master'));
-        }else{
-          return view('frontend.404');
+     
+        if($request->data=='Tanah'){
+              $data_master = data_master::where('nama_asset',$request->data)->orderby('id','asc')->first();
+
+
+           return view('backend.asset.tanah.index',compact('data_master'));
         }
+        // if($request->data){
+        //   $data_master = data_master::where('nama_asset',$request->data)->orderby('id','asc')->first();
+
+
+        //   // dd($data_master->rumpun->rumpun->rumpun->rumpun->nama_asset);
+        //   /*
+        //   list tanah didapatkan dari kode barang, atau dari menu aset, bagian yang diseleksi dan table databasenya data_master fungsinya disini
+        //   untuk create, cuman disini dimasukan kedalam session agar bisa di pakai di create nantinya
+        //   */
+        //   $list =[];
+        //   /*
+        //     data merupakan array yang berisikan asset berdasarkan tanah table nya disini adalah table asset + tanah
+        //   */
+        //   $data = [];
+        //   if($data_master->rumpun){
+        //     foreach ($data_master->rumpun as $masters) {
+        //       if($masters->rumpun){
+        //         foreach ($masters->rumpun as $master) {
+        //           if($master->rumpun){
+        //             foreach ($master->rumpun as $mast) {
+        //               if($mast->rumpun){
+        //                 foreach ($mast->rumpun as $mas) {
+        //                   $list = $list+[$mas->id => $mas->nama_asset];
+        //                   if($mas->aset){
+        //                     foreach ($mas->aset as $aset) {
+
+        //                       array_push($data,$aset);
+
+        //                     }
+        //                   }
+        //                 }
+        //               }
+        //             }
+        //           }
+        //         }
+        //       }
+        //     }
+        //   }
+
+          
+
+
+        //   $request->session()->put('list', collect($list));
+        //   dd($data_master);
+         
+
+       
     }
 
     public function create(Request $request)
@@ -80,9 +99,9 @@ class assetController extends Controller
       if($aset->master->kepala->kepala->kepala->kepala){
         //1 tanah
         if(strtolower($aset->master->kepala->kepala->kepala->kepala->nama_asset) == strtolower('tanah')){
+
           $tanah = tanah::where('no_registrasi_aset',$aset->no_registrasi_aset)->first();
           if(!$tanah){
-
             return redirect()->back();
           }
           return view('backend.asset.detail',compact('aset','tanah'));
