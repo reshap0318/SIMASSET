@@ -17,7 +17,9 @@
     <div class="col-md-4 col-sm-4 col-xs-12">
     <div class="x_panel tile fixed_height">
                 <div class="x_title">
-                   <a href=""><h3>Universitas Andalas</h3></a>
+
+
+                   <a href="{{route('tanah.index',['data'=>'Tanah'])}}"><h3>Universitas Andalas</h3></a>
                   <ul class="nav navbar-right panel_toolbox">
                   </ul>
                   <div class="clearfix"></div>

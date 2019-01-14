@@ -116,6 +116,7 @@
     <script src="{{ URL::asset('/gantela/vendors/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
       @yield('scripts')
     <script type="text/javascript">
+      
       var server="<?php echo Request::root(); ?>";
       console.log(server);
         $.ajax({

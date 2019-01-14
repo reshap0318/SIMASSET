@@ -19,13 +19,12 @@ class assetController extends Controller
 
     public function index(Request $request)
     {
-     
+      
         if($request->data=='Tanah'){
               $data_master = data_master::where('nama_asset',$request->data)->orderby('id','asc')->first();
-
-
            return view('backend.asset.tanah.index',compact('data_master'));
         }
+
         // if($request->data){
         //   $data_master = data_master::where('nama_asset',$request->data)->orderby('id','asc')->first();
 

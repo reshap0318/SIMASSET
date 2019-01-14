@@ -8,6 +8,7 @@ use App\tanah_old as tanah;
 use App\asset;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\File;
+use App\data_master;
 
 class tanaholdController extends Controller
 {
@@ -124,5 +125,59 @@ class tanaholdController extends Controller
         $dataarray[]=array('id'=>$id,'no_registrasi_aset'=>$no_registrasi_aset,'longitude'=>$longitude,'latitude'=>$latitude);
       }
       return response()->json($dataarray);
+  }
+
+  public function index(Request $request){
+       if($request->data){
+          $data_master = data_master::where('nama_asset',$request->data)->orderby('id','asc')->first();
+
+
+          // dd($data_master->rumpun->rumpun->rumpun->rumpun->nama_asset);
+          /*
+          list tanah didapatkan dari kode barang, atau dari menu aset, bagian yang diseleksi dan table databasenya data_master fungsinya disini
+          untuk create, cuman disini dimasukan kedalam session agar bisa di pakai di create nantinya
+          */
+          $list =[];
+          /*
+            data merupakan array yang berisikan asset berdasarkan tanah table nya disini adalah table asset + tanah
+          */
+          $data = [];
+          if($data_master->rumpun){
+            foreach ($data_master->rumpun as $masters) {
+              if($masters->rumpun){
+                foreach ($masters->rumpun as $master) {
+                  if($master->rumpun){
+                    foreach ($master->rumpun as $mast) {
+                      if($mast->rumpun){
+                        foreach ($mast->rumpun as $mas) {
+                          $list = $list+[$mas->id => $mas->nama_asset];
+                          if($mas->aset){
+                            foreach ($mas->aset as $aset) {
+
+                              array_push($data,$aset);
+
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          
+
+
+          $request->session()->put('list', collect($list));
+     
+
+                $request->session()->put('list', collect($list));
+          return view('backend.asset.index',compact('data','data_master'));
+        }else{
+          return view('frontend.404');
+        }
+
   }
 }
