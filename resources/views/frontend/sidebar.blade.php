@@ -55,32 +55,43 @@
         @endif
         
         @if(Sentinel::getUser()->hasAccess(['datamaster.index']))
-          <li><a><i class="fa fa-bookmark  "></i>Aset <span class="fa fa-chevron-down"></span></a>
-            <ul class="nav child_menu">
+          <li><a href="{{route('datamaster.index',['aset=Tetap'])}}"><i class="fa fa-bookmark  "></i>Identitas Aset </a>
+       <!--      <ul class="nav child_menu">
                 <li><a href="{{route('datamaster.index',['aset=Lancar'])}}">Tidak Tetap</a></li>
-                <li><a href="{{route('datamaster.index',['aset=Tetap'])}}">Tetap</a></li>
+                <li>Tetap</a></li>
                 @if(Sentinel::getUser()->hasAccess(['datamaster.create']))
                   <li><a href="{{route('datamaster.create')}}">New Aset</a></li>
                 @endif
-            </ul>
+            </ul> -->
           </li>
         @endif
+      
+
       </ul>
+
+
     </div>
-    <div class="menu_section">
+
+
+    <!-- <div class="menu_section">
       <h3>General</h3>
       <ul class="nav side-menu">
           <li><a href="{{ url('My-QrCode') }}"><i class="fa fa-qrcode"></i>My QR-Code</a></li>
       </ul>
     </div>
+     -->
+
+
     <div class="menu_section">
-      <h3>Buku Daftar</h3>
+      <h3>KIB</h3>
       <ul class="nav side-menu">
-          <li><a href="{{route('datamaster.index',['aset=Lancar'])}}"><i class="fa fa-book "></i>Buku Barang</a></li>
-          <li><a><i class="fa fa-folder-open"></i>Kartu Inventaris Barang <span class="fa fa-chevron-down"></span></a>
+          <!-- <li><a href="{{route('datamaster.index',['aset=Lancar'])}}"><i class="fa fa-book "></i>Buku Barang</a></li> -->
+          <li><a><i class="fa fa-folder-open"></i>Kartu Inventaris Barang  <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu" id="menukib">
             </ul>
           </li>
+
+
       </ul>
     </div>
 

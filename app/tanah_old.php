@@ -19,7 +19,7 @@ class tanah_old extends Model
      'jenis_dokumen'         => 'string',
      'jenis_sertifikat'      => 'string',
      'no_dokumen'            => 'string',
-     'tanggal_dokumen'      => 'date',
+     'tanggal_dokumen'       => 'date',
      'foto_dokumen'          => 'string',
      'luas'                  => 'integer',
      'luas_tanah_bangunan'   => 'integer',

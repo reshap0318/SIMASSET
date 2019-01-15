@@ -1,9 +1,10 @@
 <div class="form-group col-sm-6">
-  {!! Form::label('master_id', 'Master *', ['class' => 'control-label col-md-3 col-sm-3 col-xs-12']) !!}
+  {!! Form::label('kode_barang', 'Label *', ['class' => 'control-label col-md-3 col-sm-3 col-xs-12']) !!}
   <div class="col-md-6 col-sm-6 col-xs-12">
-    {!! Form::select('master_id', $noReg, null, ['class' => 'foselect2_single form-control','id'=>'master']) !!}
+    {!! Form::select('kode_barang', $barang, null, ['class' => 'foselect2_single form-control']) !!}
   </div>
 </div>
+
 
 <div class="form-group col-sm-6">
   {!! Form::label('no_registrasi_aset', 'Nomor Registrasi Aset *', ['class' => 'control-label col-md-3 col-sm-3 col-xs-12']) !!}
@@ -18,11 +19,13 @@
 </div>
 
 <div class="form-group col-sm-6">
-  {!! Form::label('kode_barang', 'Barang *', ['class' => 'control-label col-md-3 col-sm-3 col-xs-12']) !!}
+  {!! Form::label('master_id', 'Master *', ['class' => 'control-label col-md-3 col-sm-3 col-xs-12']) !!}
   <div class="col-md-6 col-sm-6 col-xs-12">
-    {!! Form::select('kode_barang', $barang, null, ['class' => 'foselect2_single form-control']) !!}
+    {!! Form::select('master_id', $noReg, null, ['class' => 'foselect2_single form-control','id'=>'master']) !!}
   </div>
 </div>
+
+
 
 <div class="form-group col-sm-6">
   {!! Form::label('kode_satker', 'Satuan Kerja *', ['class' => 'control-label col-md-3 col-sm-3 col-xs-12']) !!}
