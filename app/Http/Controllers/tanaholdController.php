@@ -13,29 +13,28 @@ use App\data_master;
 class tanaholdController extends Controller
 {
   public function store(Request $request){
-      $request->validate([
-        'no_registrasi_aset' => 'required|unique:tanah',
-        'kode_barang' => 'required',
-        'kode_satker' => 'required',
-        'nup' => 'required',
-        'no_kib' => 'required',
-        'kondisi' => 'required',
-        'merek' => 'required',
-        'tercatat_dalam' => 'required',
-        'status_sbsn' => 'required',
-        'status_aset_idle' => 'required',
-        'status_dokumen' => 'required',
-        'jenis_dokumen' => 'required',
-        'jenis_sertifikat' => 'required',
-        'no_dokumen' => 'required',
-        'luas' => 'required',
-        'luas_tanah_bangunan' => 'required',
-        'geom' => 'required',
-        'master_id' => 'required',
-        'foto' => 'image|mimes:jpg,png,jpeg,gif',
-      ]);
+      // $request->validate([
+      //   'no_registrasi_aset' => 'required|unique:tanah',
+      //   'kode_barang' => 'required',
+      //   'kode_satker' => 'required',
+      //   'nup' => 'required',
+      //   'no_kib' => 'required',
+      //   'kondisi' => 'required',
+      //   'merek' => 'required',
+      //   'tercatat_dalam' => 'required',
+      //   'status_sbsn' => 'required',
+      //   'status_aset_idle' => 'required',
+      //   'status_dokumen' => 'required',
+      //   'jenis_dokumen' => 'required',
+      //   'jenis_sertifikat' => 'required',
+      //   'no_dokumen' => 'required',
+        
+      //   'geom' => 'required',
+      //   'master_id' => 'required',
+      //   'foto' => 'image|mimes:jpg,png,jpeg,gif',
+      // ]);
 
-      // dd($request->all());
+      ($request->all());
       $aset = new asset;
       $aset->no_registrasi_aset = $request->master_id.$request->no_registrasi_aset;
       $aset->kode_barang = $request->kode_barang;
@@ -65,7 +64,7 @@ class tanaholdController extends Controller
           File::delete(storage_path('app'.'/'. $path . '/' . $oldfile));
           File::delete(public_path($path . '/' . $oldfile));
       }
-      try {
+      
         if($aset->save()){
 
             $tanah = new tanah;
@@ -75,16 +74,16 @@ class tanaholdController extends Controller
             $tanah->jenis_dokumen = $request->jenis_dokumen;
             $tanah->jenis_sertifikat = $request->jenis_sertifikat;
             $tanah->tanggal_dokumen = $request->tanggal_dokumen;
-            $tanah->luas = $request->luas;
-            $tanah->luas_tanah_bangunan = $request->luas_tanah_bangunan;
+         
             $tanah->geom = $request->geom;
             $tanah['geom'] = "MULTIPOLYGON(".$tanah['geom'].")";
-            $tanah->save();
-            return redirect()->route('aset.index',['data='.$aset->master->kepala->kepala->kepala->kepala->nama_asset]);
+            
+
+            if($tanah->save()){
+            return redirect()->route('tanah.index',['data'=>'Tanah']);
+            }
         }
-      } catch (\Exception $e) {
-          return redirect()->back();
-      }
+      
   }
 
   public function destroy($id)

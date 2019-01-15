@@ -19,7 +19,7 @@
                 <div class="x_title">
 
 
-                   <a href="{{route('tanah.index',['data'=>'Tanah'])}}"><h3>Universitas Andalas</h3></a>
+                   <a href="{{route('tanah.index',['data'=>'Tanah'])}}"><h3>Kampus I - Limau Manis</h3></a>
                   <ul class="nav navbar-right panel_toolbox">
                   </ul>
                   <div class="clearfix"></div>
@@ -35,7 +35,7 @@
          <div class="col-md-4 col-sm-4 col-xs-12">
     <div class="x_panel tile fixed_height">
                 <div class="x_title">
-                  <a href=""><h3>Payakumbuh</h3></a>
+                  <a href=""><h3>Kampus II - Payakumbuh</h3></a>
                   <ul class="nav navbar-right panel_toolbox">
                   
                   </ul>
@@ -54,7 +54,7 @@
              <div class="col-md-4 col-sm-4 col-xs-12">
     <div class="x_panel tile fixed_height">
                 <div class="x_title">
-                  <a href=""><h3>Dhamasraya</h3></a>
+                  <a href=""><h3>Kampus III - Dhamasraya</h3></a>
                   <ul class="nav navbar-right panel_toolbox">
                   
                   </ul>
@@ -63,8 +63,6 @@
 
                 <div class="x_content">
                   <div>
-
-                    
                   </div>
                 </div>
         </div>

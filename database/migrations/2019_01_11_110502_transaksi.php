@@ -14,7 +14,7 @@ class Transaksi extends Migration
     public function up()
     {
         Schema::create('transaksi', function (Blueprint $table) {
-            $table->integer('kd_trn')->primary();
+            $table->string('kd_trn')->primary();
             $table->string('ur_trn');
         });
     }
