@@ -50,15 +50,15 @@
               <td class=" ">{{$dat->merek}}</td>
               <td class=" ">{{$dat->satker->nama_satker}}</td>
               <td class=" last">
-                @if (Sentinel::getUser()->hasAccess(['aset.show']))
-                  <a href="{{route('aset.show', $dat->id)}}" class="btn btn-success btn-xs">View</a>
-                @endif
+                {{--@if (Sentinel::getUser()->hasAccess(['aset.show']))--}}
+                  {{--<a href="{{route('aset.show', $dat->id)}}" class="btn btn-success btn-xs">View</a>--}}
+                {{--@endif--}}
 
-                @if (Sentinel::getUser()->hasAccess(['aset.destroy']))
-                  {!! Form::open(['method'=>'DELETE', 'route' => ['aset.destroy', $dat->id], 'style' => 'display:inline']) !!}
-                  {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs','id'=>'delete-confirm']) !!}
-                  {!! Form::close() !!}
-                @endif
+                {{--@if (Sentinel::getUser()->hasAccess(['aset.destroy']))--}}
+                  {{--{!! Form::open(['method'=>'DELETE', 'route' => ['aset.destroy', $dat->id], 'style' => 'display:inline']) !!}--}}
+                  {{--{!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs','id'=>'delete-confirm']) !!}--}}
+                  {{--{!! Form::close() !!}--}}
+                {{--@endif--}}
               </td>
               </tr>
         @endforeach

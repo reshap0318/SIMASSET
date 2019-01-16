@@ -16,7 +16,7 @@ Auth::routes();
 Route::get('qrLogin', ['uses' => 'QrLoginController@qr1']);
 Route::get('qrLogin2', ['uses' => 'QrLoginController@qr2']);
 Route::post('qrLogin', ['uses' => 'QrLoginController@checkUser']);
-
+Route::get('tanah/{kd_brg}', 'tanahController@show');
 Route::group(['middleware' => ['web', 'auth', 'permission'] ], function () {
   Route::get('/', function () {
       return view('welcome');
@@ -63,7 +63,9 @@ Route::group(['middleware' => ['web', 'auth', 'permission'] ], function () {
 
   route::resource('datamaster','DataMasterController');
   route::resource('aset','assetController');
-  route::resource('tanah','tanaholdController');
+//  route::resource('tanah','tanaholdController');
+    route::resource('tanah','tanahController');
+
   route::get('menu','HomeController@menu');
 
 });

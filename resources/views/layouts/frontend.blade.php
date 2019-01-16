@@ -125,8 +125,8 @@
                 for (var i in rows)
                 {
                   var row = rows[i];
-                  var menu=row.nama_asset;
-                  $('#menukib').append('<li> <a href="'+server+'/aset?data='+menu+'">KIB '+menu+'</a> </li>');
+                  var menu=row.id;
+                  $('#menukib').append('<li> <a href="'+server+'/aset?data='+row.id+'">KIB '+row.nama_asset+'</a> </li>');
                 }
             }
           });

@@ -6,7 +6,7 @@
 @section('content')
 <div class="x_panel">
   <div class="x_title">
-    <h2>Daftar Kode Barang Aset {{$aset}}</h2>
+    <h2>Daftar Kode Barang Aset </h2>
     <ul class="nav navbar-right panel_toolbox">
       @if (Sentinel::getUser()->hasAccess(['datamaster.create']))
         <a href="{{route('datamaster.create')}}" class="btn btn-success">New Data Master</a>
@@ -42,20 +42,22 @@
         }?>
       <tbody>
         @foreach($datamasters as $datamaster)
-              <td class=" ">{{kasihtitik($datamaster->id)}}</td>
+              <td class=" ">0{{kasihtitik($datamaster->id)}}</td>
               <td class=" ">{{$datamaster->nama_asset}}</td>
               <td class=" last">
                 @if (Sentinel::getUser()->hasAccess(['datamaster.create']))
-                  <a href="{{route('datamaster.create', ['id='.$datamaster->id])}}" class="btn btn-success btn-xs">create</a>
+{{--                  <a href="{{route('datamaster.create', ['id='.$datamaster->id])}}" class="btn btn-success btn-xs">create</a>--}}
                 @endif
                 <!-- @if (Sentinel::getUser()->hasAccess(['datamaster.edit']))
-                  <a href="{{route('datamaster.edit', $datamaster->id)}}" class="btn btn-success btn-xs">edit</a>
+{{--                  <a href="{{route('datamaster.edit', $datamaster->id)}}" class="btn btn-success btn-xs">edit</a>--}}
                 @endif -->
-                @if (Sentinel::getUser()->hasAccess(['datamaster.destroy']))
-                  {!! Form::open(['method'=>'DELETE', 'route' => ['datamaster.destroy', $datamaster->id], 'style' => 'display:inline']) !!}
-                  {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs','id'=>'delete-confirm']) !!}
-                  {!! Form::close() !!}
-                @endif
+                {{--@if (Sentinel::getUser()->hasAccess(['datamaster.destroy']))--}}
+                  {{--{!! Form::open(['method'=>'DELETE', 'route' => ['datamaster.destroy', $datamaster->id], 'style' => 'display:inline']) !!}--}}
+                  {{--{!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs','id'=>'delete-confirm']) !!}--}}
+                  {{--{!! Form::close() !!}--}}
+                {{--@endif--}}
+
+                    <a href="{{route('datamaster.show', $datamaster->id)}}" class="btn btn-success btn-xs">Lihat</a>
               </td>
               </tr>
         @endforeach
