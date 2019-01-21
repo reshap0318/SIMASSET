@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\sskel;
 use Illuminate\Http\Request;
 use App\asset;
 use App\data_master;
@@ -19,11 +20,21 @@ class assetController extends Controller
 
     public function index(Request $request)
     {
-      
-        if($request->data=='Tanah'){
-              $data_master = data_master::where('nama_asset',$request->data)->orderby('id','asc')->first();
-           return view('backend.asset.tanah.index',compact('data_master'));
-        }
+        if($request->data=='2'){
+              $data_master = data_master::where('id',$request->data)->orderby('id','asc')->first();
+              $para= $data_master->id.'%';
+              $total_payakumbuh = DB::select('Select count(kd_brg) as total, sum(kuantitas) as sum from tanah where kd_kab=856 or kd_kab=803');
+              $total_padang = DB::select('Select count(kd_brg) as total,sum(kuantitas) as sum from tanah where kd_kab=855 or kd_kab=800');
+              $total_damasraya = DB::select('Select count(kd_brg) as total, sum(kuantitas) as sum from tanah where kd_kab=0');
+              $tanah = sskel::where('kd_gol',$data_master->id)->get();
+
+              //kuantitas tanah per jenis
+
+//            dd($total_per_jenis);
+           return view('backend.asset.tanah.index',compact('tanah','data_master','total_payakumbuh','total_damasraya','total_padang'));
+        }else{
+            return view('frontend.404');
+    }
 
        
        

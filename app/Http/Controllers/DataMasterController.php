@@ -10,18 +10,22 @@ class DataMasterController extends Controller
 
     public function index(Request $request)
     {
-      $request->session()->put('statis', $request->aset);
-      $aset = $request->aset;
-        if($aset == "Lancar"){
-          $datamasters = data_master::where('keterangan','Lancar')->orderby('id','asc')->get();
-          return view('backend.datamaster.index',compact('datamasters','aset'));
-        }elseif($aset == "Tetap"){
-          $datamasters = data_master::where('keterangan','Tetap')->orderby('id','asc')->get();
+//      $request->session()->put('statis', $request->aset);
+//      $aset = $request->aset;
+//        /if($aset == "Lancar"){
+//          $datamasters = data_master::where('keterangan','Lancar')->orderby('id','asc')->get();
+//          return view('backend.datamaster.index',compact('datamasters','aset'));
+//        }elseif($aset == "Tetap"){
+//          $datamasters = data_master::where('keterangan','Tetap')->orderby('id','asc')->get();
           // dd($datamasters);
-          return view('backend.datamaster.index',compact('datamasters','aset'));
-        }else{
-          return view('frontend.404');
-        }
+//          return view('backend.datamaster.index',compact('datamasters','aset'));
+//        }else{
+//          return view('frontend.404');
+//        }
+
+        $datamasters = data_master::all();
+
+        return view('backend.datamaster.index',compact('datamasters'));
     }
 
 

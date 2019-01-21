@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
 			    		'email' 		   => 'reshap03@gmail.com',
 			    		'password' 		 => bcrypt('admin'),
 			    		'permissions'  => '{"home.dashboard":true}',
-              'nama'         => 'Admin',
+                         'nama'         => 'Admin',
 			    		'QRpassword'	 => 'Dammy-CODE-1S4u7lJzehk62xDm3DgYgXXYWtbHE6gSP'
 			    ]
         ]);

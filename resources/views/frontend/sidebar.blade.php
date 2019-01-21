@@ -50,19 +50,17 @@
 
         @if(Sentinel::getUser()->hasAccess(['satker.index']))
           <li><a href="{{ route('satker.index') }}"><i class="fa fa-building"></i>Satuan Kerja</a></li>
-
-
         @endif
         
         @if(Sentinel::getUser()->hasAccess(['datamaster.index']))
-          <li><a href="{{route('datamaster.index',['aset=Tetap'])}}"><i class="fa fa-bookmark  "></i>Identitas Aset </a>
-       <!--      <ul class="nav child_menu">
-                <li><a href="{{route('datamaster.index',['aset=Lancar'])}}">Tidak Tetap</a></li>
-                <li>Tetap</a></li>
-                @if(Sentinel::getUser()->hasAccess(['datamaster.create']))
-                  <li><a href="{{route('datamaster.create')}}">New Aset</a></li>
-                @endif
-            </ul> -->
+          <li><a href="{{route('datamaster.index')}}"><i class="fa fa-bookmark  "></i>Identitas Aset </a>
+       {{--<!--      <ul class="nav child_menu">--}}
+                {{--<li><a href="{{route('datamaster.index',['aset=Lancar'])}}">Tidak Tetap</a></li>--}}
+                {{--<li>Tetap</a></li>--}}
+                {{--@if(Sentinel::getUser()->hasAccess(['datamaster.create']))--}}
+                  {{--<li><a href="{{route('datamaster.create')}}">New Aset</a></li>--}}
+                {{--@endif--}}
+            {{--</ul> -->--}}
           </li>
         @endif
       
