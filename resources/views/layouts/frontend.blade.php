@@ -41,7 +41,7 @@
     @yield('style')
   </head>
 
-  <body class="nav-sm">
+  <body class="nav-md">
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
@@ -116,7 +116,7 @@
     <script src="{{ URL::asset('/gantela/vendors/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
       @yield('scripts')
     <script type="text/javascript">
-      
+
       var server="<?php echo Request::root(); ?>";
       console.log(server);
         $.ajax({

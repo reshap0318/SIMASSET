@@ -68,4 +68,12 @@ Route::group(['middleware' => ['web', 'auth', 'permission'] ], function () {
 
   route::get('menu','HomeController@menu');
 
+  route::resource('page','pageController');
+  route::get('pengadaan','pageController@pengadaan')->name('page.pengadaan');
+  route::get('pemeliharaan','pageController@pemeliharaan')->name('page.pemeliharaan');
+  route::get('pembiayaan','pageController@pembiayaan')->name('page.pembiayaan');
+  route::get('pemindah_tanganan','pageController@pemindah_tanganan')->name('page.pemindah_tanganan');
+  route::get('penghapusan','pageController@penghapusan')->name('page.penghapusan');
+  route::get('pemanfaatan','pageController@pemanfaatan')->name('page.pemanfaatan');
+
 });

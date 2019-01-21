@@ -10,7 +10,12 @@
               <div class="x_title">
                   <a href=""><h3>Daftar Tanah {{$lokasi}}</h3></a>
                   <ul class="nav navbar-right panel_toolbox">
-
+                      <a class="btn btn-success" href="{{route('page.pengadaan')}}">Pengadaan</a>
+                      <a class="btn btn-success" href="{{route('page.pemeliharaan')}}">Pemeliharaan</a>
+                      <a class="btn btn-success" href="{{route('page.pemanfaatan')}}">Pemanfaatan</a>
+                      <a class="btn btn-success" href="{{route('page.pemindah_tanganan')}}">Pemindah-tanganan</a>
+                      <a class="btn btn-success" href="{{route('page.penghapusan')}}">Penghapusan</a>
+                      <a class="btn btn-success" href="{{route('page.pembiayaan')}}">Pembiayaan</a>
                   </ul>
                   <div class="clearfix"></div>
               </div>
