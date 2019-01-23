@@ -28,7 +28,7 @@
                         <div class="col-md-6">
                             <strong>Total  : </strong> {{$total_padang[0]->total}}
                             <br>
-                            <strong>Luas  : </strong> {{$total_padang[0]->sum}} m2
+                            <strong>Luas  : </strong> {{number_format($total_padang[0]->sum  ,0,",",".")}} m2
                         </div>
                         <div class="col-md-6">
                             <a href="{{route('tanah.index',['data'=>$data_master, 'lok' => '1'])}}" class="btn btn-primary pull-right">Lihat</a>
@@ -53,7 +53,7 @@
                     <div class="col-md-6">
                         <strong>Total  : </strong> {{$total_payakumbuh[0]->total}}
                         <br>
-                        <strong>Luas  : </strong> {{$total_payakumbuh[0]->sum}} m2
+                        <strong>Luas  : </strong> {{number_format($total_payakumbuh[0]->sum  ,0,",",".")}} m2
                     </div>
                     <div class="col-md-6">
                         <a href="{{route('tanah.index',['data'=>$data_master, 'lok' => '2'])}}" class="btn btn-primary pull-right">Lihat</a>
@@ -78,7 +78,7 @@
                 <div class="col-md-6">
                     <strong>Total  : </strong> {{$total_damasraya[0]->total}}
                     <br>
-                    <strong>Luas  : </strong> {{$total_damasraya[0]->sum}} m2
+                    <strong>Luas  : </strong>{{number_format($total_damasraya[0]->sum  ,0,",",".")}}  m2
                 </div>
                 <div class="col-md-6">
                     <a href="{{route('tanah.index',['data'=>$data_master, 'lok' => '3'])}}" class="btn btn-primary pull-right">Lihat</a>

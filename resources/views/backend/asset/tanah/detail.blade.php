@@ -33,7 +33,7 @@
 							{!! Form::label('nama', 'RPH Aset') !!}
 						</div>
 						<div class="col-md-8">
-							{!! Form::label('nama', ' : ') !!} {{$data->rph_aset}}
+							Rp {!! Form::label('nama', ' : ') !!} {{number_format($data->rph_aset  ,0,",",".")}}
 						</div>
 					</div>
 
