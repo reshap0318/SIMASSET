@@ -43,7 +43,7 @@ class tanahController extends Controller
     }
 		
 
-         
+
 
 
 }

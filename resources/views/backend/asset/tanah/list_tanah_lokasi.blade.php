@@ -8,10 +8,8 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="x_panel tile fixed_height">
               <div class="x_title">
-                  <a href=""><h3>Daftar Tanah {{$lokasi}}</h3></a>
-                  <ul class="nav navbar-right panel_toolbox">
-
-                  </ul>
+                  <a href="" class="col-sm-6"><h3>Daftar Tanah {{$lokasi}}</h3></a>
+                    <li><a class="btn btn-success navbar-right" href="{{route('page.pengadaan')}}">Pengadaan</a></li>
                   <div class="clearfix"></div>
               </div>
 
@@ -56,7 +54,19 @@
                           <td class=" last">
                               @if (Sentinel::getUser()->hasAccess(['aset.show']))
                                   <center>
-                              <a href="{{route('tanah.show', [$dat->kd_brg])}}" class="btn btn-primary">Lihat</a>
+                              <div class="dropdown">
+                                <a href="{{route('tanah.show', [$dat->kd_brg])}}" class="btn btn-primary">Lihat</a>
+                                <a class="btn btn-warning" href="{{route('page.penghapusan')}}">Delete</a>
+                                <a href="javascript:;" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                Manage <span class=" fa fa-angle-down"></span>
+
+                                </a>
+                                <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                  <li><a class="btn dropdown-item" href="{{route('page.pemeliharaan')}}">Pemeliharaan</a></li>
+                                  <li><a class="btn dropdown-item" href="{{route('page.pemanfaatan')}}">Pemanfaatan</a></li>
+                                  <li><a class="btn dropdown-item" href="{{route('page.pemindah_tanganan')}}">Pemindah-tanganan</a></li>
+                                  <li><a class="btn dropdown-item" href="{{route('page.pembiayaan')}}">Pembiayaan</a></li>
+                                </ul>
                                   </center>
                               @endif
 
