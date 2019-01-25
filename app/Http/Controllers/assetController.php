@@ -23,21 +23,22 @@ class assetController extends Controller
         if($request->data=='2'){
               $data_master = data_master::where('id',$request->data)->orderby('id','asc')->first();
               $para= $data_master->id.'%';
-              $total_payakumbuh = DB::select('Select count(kd_brg) as total, sum(kuantitas) as sum from tanah where kd_kab=856 or kd_kab=803');
-              $total_padang = DB::select('Select count(kd_brg) as total,sum(kuantitas) as sum from tanah where kd_kab=855 or kd_kab=800');
-              $total_damasraya = DB::select('Select count(kd_brg) as total, sum(kuantitas) as sum from tanah where kd_kab=0');
-              $tanah = sskel::where('kd_gol',$data_master->id)->get();
+              $total_payakumbuh = DB::select('Select count(id) as total, sum(luass) as sum from tanah where kd_kab=856 or kd_kab=803');
+              $total_padang = DB::select('Select count(id) as total,sum(luass) as sum from tanah where kd_kab=855 or kd_kab=800');
+              $total_damasraya = DB::select('Select count(id) as total, sum(luass) as sum from tanah where kd_kab=0');
+              $datas = sskel::where('kd_gol',2)->get();
+              $aset = asset::all();
 
               //kuantitas tanah per jenis
 
 //            dd($total_per_jenis);
-           return view('backend.asset.tanah.index',compact('tanah','data_master','total_payakumbuh','total_damasraya','total_padang'));
+           return view('backend.asset.tanah.index',compact('aset','datas','data_master','total_payakumbuh','total_damasraya','total_padang'));
         }else{
             return view('frontend.404');
     }
 
-       
-       
+
+
     }
 
     public function create(Request $request)

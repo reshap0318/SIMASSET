@@ -22,7 +22,7 @@ class skel extends Model
      'ur_skel'
   ];
 
-  public function kel($value='')
+  public function kel()
   {
       return $this->belongsTo(kel::class, 'id_kel', 'id_kel');
   }

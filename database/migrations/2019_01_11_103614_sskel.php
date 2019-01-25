@@ -14,15 +14,22 @@ class Sskel extends Migration
     public function up()
     {
         Schema::create('sskel', function (Blueprint $table) {
-            $table->increments('id_sskel');
-            $table->integer('id_skel')->unsigned();
+            $table->string('kd_bid')->index();
+            $table->string('kd_gol')->index();
+            $table->string('kd_kel')->index();
+            $table->string('kd_skel')->index();
             $table->string('kd_sskel');
             $table->string('ur_sskel');
             $table->string('satuan');
-            $table->string('kd_brg')->unique();
+            $table->string('kd_brg')->primary();
             $table->string('dasar');
 
-            $table->foreign('id_skel')->references('id_skel')->on('skel');
+
+            $table->foreign('kd_bid')->references('kd_bid')->on('skel');
+            $table->foreign('kd_gol')->references('kd_gol')->on('skel');
+            $table->foreign('kd_kel')->references('kd_kel')->on('skel');
+            $table->foreign('kd_skel')->references('kd_skel')->on('skel');
+
         });
     }
 

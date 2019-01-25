@@ -17,6 +17,11 @@ Route::get('qrLogin', ['uses' => 'QrLoginController@qr1']);
 Route::get('qrLogin2', ['uses' => 'QrLoginController@qr2']);
 Route::post('qrLogin', ['uses' => 'QrLoginController@checkUser']);
 Route::get('tanah/{kd_brg}', 'tanahController@show');
+
+Route::get('dataMaster/{kd_gol}/{kd_bid}', 'DataMasterController@showsub');
+Route::get('dataMaster/{kd_gol}/{kd_bid}/{kd_kel}', 'DataMasterController@showsubsub');
+Route::get('dataMaster/{kd_gol}/{kd_bid}/{kd_kel}/{kd_skel}', 'DataMasterController@showBarang');
+
 Route::group(['middleware' => ['web', 'auth', 'permission'] ], function () {
   Route::get('/', function () {
       return view('welcome');
@@ -61,7 +66,7 @@ Route::group(['middleware' => ['web', 'auth', 'permission'] ], function () {
   //image
   Route::get('avatar/{type}/{file_id}','FileController@image');
 
-  route::resource('datamaster','DataMasterController');
+Route:: resource('datamaster', 'DataMasterController');
   route::resource('aset','assetController');
 //  route::resource('tanah','tanaholdController');
     route::resource('tanah','tanahController');

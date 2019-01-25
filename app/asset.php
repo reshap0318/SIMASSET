@@ -55,4 +55,13 @@ class asset extends Model
       return $this->belongsTo(satker::class, 'kode_satker', 'kode_satker');
   }
 
+    public function tanah()
+    {
+        return $this->belongsTo(satker::class, 'id', 'id');
+    }
+
+    public function sskel(){
+        return $this->belongsTo(sskel::class, 'kd_brg', 'kd_brg');
+    }
+
 }

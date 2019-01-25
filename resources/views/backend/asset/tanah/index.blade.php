@@ -133,13 +133,13 @@
                           return $s;
                       }?>
                       <tbody>
-                      @foreach($tanah as $dat)
+                      @foreach($datas as $dat)
                           <?php
-                          $total_per_jenis = DB::select('Select count(kd_brg) as kd_brg from tanah where kd_brg= ?',[$dat->kd_brg]);
-                          $pdg = DB::select('Select count(kd_brg) as GroupKota from tanah where kd_brg= ? and (kd_kab = 855 or kd_kab= 800)',[$dat->kd_brg]);
-                          $pyk = DB::select('Select count(kd_brg) as GroupKota from tanah where kd_brg= ? and (kd_kab = 856 or kd_kab= 803)',[$dat->kd_brg]);
-                          $dmr = DB::select('Select count(kd_brg) as GroupKota from tanah where kd_brg= ? and (kd_kab = 0)',[$dat->kd_brg]);
-
+                          $total_per_jenis = DB::select('Select count(kd_brg) as kd_brg from asset where kd_brg= ?',[$dat->kd_brg]);
+                          $pdg = DB::select('Select count(kd_brg) as GroupKota from asset join tanah on tanah.id=asset.id where kd_brg= ? and (kd_kab = 855 or kd_kab= 800)',[$dat->kd_brg]);
+                          $pyk = DB::select('Select count(kd_brg) as GroupKota from asset join tanah on tanah.id=asset.id where kd_brg= ? and (tanah.kd_kab = 856 or tanah.kd_kab= 803) ',[$dat->kd_brg]);
+                          $dmr = DB::select('Select count(kd_brg) as GroupKota from asset join tanah on tanah.id=asset.id where kd_brg= ? and (kd_kab = 0) ',[$dat->kd_brg]);
+//                          dd($datas);
                           ?>
                           @if($total_per_jenis[0]->kd_brg != 0)
                           <td class=" text-center">{{ ++$no }}</td>
@@ -158,7 +158,8 @@
 
                           {{--</td>--}}
                           </tr>
-                              <?php $t= $t + $total_per_jenis[0]->kd_brg;
+<!--                              --><?php
+                                      $t= $t + $total_per_jenis[0]->kd_brg;
                                     $k = $k + $pdg[0]->GroupKota;
                                     $l = $l + $pyk[0]->GroupKota;
                                     $m = $m + $dmr[0]->GroupKota;

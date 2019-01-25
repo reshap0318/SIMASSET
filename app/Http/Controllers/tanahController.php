@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\pemanfaatan;
 use Illuminate\Http\Request;
 use DB;
 use App\tanah_old as tanah;
@@ -36,8 +37,8 @@ class tanahController extends Controller
         return view('backend.asset.tanah.list_tanah_lokasi',compact('tanah', 'lokasi','lok'));
     }
 
-    public function show(Request $request){
-	    $data = \App\tanah::where('kd_brg', $request->kd_brg)->first();
+    public function show($id){
+	    $data = \App\tanah::where('id',$id)->first();
 	    if(($data->kd_kab == 855)||($data->kd_kab == 800)){
 	        $kab = 'Padang';
         } else if(($data->kd_kab == 856)||($data->kd_kab == 803)){
@@ -45,7 +46,13 @@ class tanahController extends Controller
         }else{
 	        $kab = 'Darmasraya';
         }
-	    return view('backend.asset.tanah.detail',compact('data','kab'));
+
+        $total_biaya =0;
+        $manfaat = pemanfaatan::where('aset_id', $id)->get();
+	    foreach ($manfaat as $m){
+	        $total_biaya = $total_biaya + $m->biaya;
+        }
+	    return view('backend.asset.tanah.detail',compact('data','kab','manfaat', 'total_biaya'));
     }
 		
 

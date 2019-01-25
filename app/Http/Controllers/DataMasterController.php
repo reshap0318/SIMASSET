@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\bid;
 use App\data_master;
+use App\gol;
+use App\kel;
+use App\skel;
+use App\sskel;
 use Illuminate\Http\Request;
 
 class DataMasterController extends Controller
@@ -70,8 +75,35 @@ class DataMasterController extends Controller
 
     public function show($id)
     {
-        $data = data_master::find($id)->id;
-        return redirect(action('assetController@index', ['data' => $data]));
+        $datas = bid::where('kd_gol', $id)->get();
+        $gol = gol::where('kd_gol', $id)->first();
+        $nama_gol = $gol->ur_gol;
+
+//        $data = data_master::find($id)->id;
+//        return redirect(action('assetController@index', ['data' => $data]));
+        return view('backend.datamaster.subDataMaster',compact('datas','nama_gol'));
+    }
+
+    public  function showsub($idm, $id){
+        $datas = kel::where('kd_bid', $id)->Where('kd_gol', $idm)->get();
+        $bid = bid::where('kd_bid', $id)->Where('kd_gol', $idm)->first();
+        $nama= $bid->ur_bid;
+        return view('backend.datamaster.ssdm',compact('datas','nama'));
+    }
+
+    public  function showsubsub($idm, $id, $ids){
+        $datas = skel::Where('kd_gol', $idm)->where('kd_bid', $id)->where('kd_kel', $ids)->get();
+        $kel = kel::Where('kd_gol', $idm)->where('kd_bid', $id)->where('kd_kel', $ids)->first();
+        $nama= $kel->ur_kel;
+
+        return view('backend.datamaster.sssdm',compact('datas','nama'));
+    }
+
+    public  function showBarang($idm, $id, $ids, $idb){
+        $datas = sskel::Where('kd_gol', $idm)->where('kd_bid', $id)->where('kd_kel', $ids)->where('kd_skel', $idb)->get();
+        $skel = skel::Where('kd_gol', $idm)->where('kd_bid', $id)->where('kd_kel', $ids)->where('kd_skel', $idb)->first();
+        $nama= $skel->ur_skel;
+        return view('backend.datamaster.ssssdm_kdbrg',compact('datas','nama'));
     }
 
     public function edit($id)

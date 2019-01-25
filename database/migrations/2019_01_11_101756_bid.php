@@ -14,11 +14,12 @@ class Bid extends Migration
     public function up()
     {
         Schema::create('bid', function (Blueprint $table) {
-            $table->increments('id_bid');
             $table->string('kd_bid');
             $table->string('kd_gol');
             $table->string('ur_bid');
-            
+
+            $table->primary(['kd_bid', 'kd_gol']);
+
             $table->foreign('kd_gol')->references('kd_gol')->on('gol');
         });
     }

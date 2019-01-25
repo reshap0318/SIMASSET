@@ -15,7 +15,7 @@ class Tanah extends Migration
      {
          Schema::create('tanah', function (Blueprint $table) {
              $table->increments('id');
-             $table->string('no_registrasi_aset')->nullable()->index();
+             $table->integer('asset_id')->unsigned();
              $table->integer('luass')->nullable();
              $table->integer('luasb')->nullable();
              $table->integer('luasl')->nullable();
@@ -52,7 +52,7 @@ class Tanah extends Migration
 //             $table->integer('rph_aset')->nullable();
 
              $table->foreign('id_kepemilikan')->references('id_kepemilikan')->on('kepemilikan');
-             $table->foreign('no_registrasi_aset')->references('no_registrasi_aset')->on('asset')->onDelete('cascade')->onUpdate('cascade');
+             $table->foreign('asset_id')->references('id')->on('asset')->onDelete('cascade')->onUpdate('cascade');
 
 //             $table->foreign('kd_brg')->references('kd_brg')->on('sskel');
 //             $table->foreign('kd_trn')->references('kd_trn')->on('transaksi');

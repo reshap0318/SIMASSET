@@ -21,6 +21,7 @@
                           <th>Kode </th>
                           <th>Nama </th>
                           <th>Luas (m2)</th>
+                          <th>Catatan</th>
                           <th class="no-link last"><span class="nobr">Action</span></th>
                           <th class="bulk-actions" colspan="7">
                               <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
@@ -45,22 +46,22 @@
                       <tbody>
                       @foreach($tanah as $dat)
                           <td class=" text-center">{{ ++$no }}</td>
-                          <td>{{kasihtitik($dat->kd_brg)}}</td>
-                          <td class=" ">{{$dat->namaBarang->ur_sskel}}</td>
-                          <td class=" ">{{$dat->luass+$dat->luasb+$dat->luasl+$dat->luask}}</td>
+                          <td>{{kasihtitik($dat->aset->kd_brg)}}</td>
+                          <td class=" ">{{$dat->aset->sskel->ur_sskel}}</td>
+                          <td class=" ">{{$dat->luass}}</td>
+                          <td class=" ">{{$dat->aset->catatan}}</td>
 
-                          {{--<td class=" ">{{$total_per_jenis[0]->kd_brg}}</td>--}}
-{{--                          <td class=" ">{{$dat->satker->nama_satker}}</td>--}}
                           <td class=" last">
                               @if (Sentinel::getUser()->hasAccess(['aset.show']))
                                   <center>
                               <div class="dropdown">
-                                <a href="{{route('tanah.show', [$dat->kd_brg])}}" class="btn btn-primary">Lihat</a>
+                                <a href="{{route('tanah.show', [$dat->id])}}" class="btn btn-primary">Lihat</a>
                                 <a class="btn btn-warning" href="{{route('page.penghapusan')}}">Delete</a>
                                 <a href="javascript:;" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                 Manage <span class=" fa fa-angle-down"></span>
 
                                 </a>
+                              </div>
                                 <ul class="dropdown-menu dropdown-usermenu pull-right">
                                   <li><a class="btn dropdown-item" href="{{route('page.pemeliharaan')}}">Pemeliharaan</a></li>
                                   <li><a class="btn dropdown-item" href="{{route('page.pemanfaatan')}}">Pemanfaatan</a></li>
@@ -78,6 +79,5 @@
               </div>
           </div>
       </div>
-
   </div>
 @endsection

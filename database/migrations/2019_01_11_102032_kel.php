@@ -14,12 +14,14 @@ class Kel extends Migration
     public function up()
     {
         Schema::create('kel', function (Blueprint $table) {
-            $table->increments('id_kel');
-            $table->integer('id_bid')->unsigned();
-            $table->string('kd_kel');
+            $table->string('kd_bid')->nullable();
+            $table->string('kd_gol')->nullable();
+            $table->string('kd_kel')->nullable()->index();
             $table->string('ur_kel');
-            
-            $table->foreign('id_bid')->references('id_bid')->on('bid');
+
+            $table->primary(['kd_bid', 'kd_gol','kd_kel']);
+            $table->foreign('kd_gol')->references('kd_gol')->on('bid');
+            $table->foreign('kd_bid')->references('kd_bid')->on('bid');
         });
     }
 

@@ -71,4 +71,10 @@ class tanah extends Model
         return $this->belongsTo(kepemilikan::class, 'id_kepemilikan', 'id_kepemilikan');
     }
 
+    public function aset(){
+        return $this->belongsTo(asset::class, 'id', 'id');
+    }
+
+
+
 }

@@ -66,7 +66,7 @@
 
 
 
-          <li><a href=""><i class="fa fa-bookmark  "></i>Aset Laboratorium</a>
+          {{--<li><a href=""><i class="fa fa-bookmark  "></i>Aset Laboratorium</a>--}}
 
       </ul>
 
