@@ -1,6 +1,6 @@
 <div class="x_panel">
     <div class="x_title pull-right">
-        <h3>Total Biaya :  Rp {{number_format( $total_biaya,0,",",".")}}</h3>
+        <h3>Total Biaya :  Rp {{number_format( $biaya_manfaat,0,",",".")}}</h3>
     </div>
 </div>
 
@@ -10,6 +10,7 @@
         <th>no</th>
         <th>Tanggal</th>
         <th>Penyewa</th>
+        <th>Perihal</th>
         <th>Lama Sewa</th>
         <th>Biaya</th>
         <th>Bukti Dokumen</th>
@@ -19,9 +20,10 @@
     <?php $n=0; ?>
     @foreach($manfaat as $m)
     <tr>
-        <td>{{$n++}}</td>
+        <td>{{++$n}}</td>
         <td>{{$m->tanggal}}</td>
         <td>{{$m->penyewa}}</td>
+        <td>{{$m->perihal}}</td>
         <td>{{$m->lama_sewa}}</td>
         <td>Rp {{number_format($m->biaya,0,",",".")}}</td>
         <td>

@@ -58,16 +58,17 @@
                                 <a href="{{route('tanah.show', [$dat->id])}}" class="btn btn-primary">Lihat</a>
                                 <a class="btn btn-warning" href="{{route('page.penghapusan')}}">Delete</a>
                                 <a href="javascript:;" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                Manage <span class=" fa fa-angle-down"></span>
+                                Kelola Aset <span class=" fa fa-angle-down"></span>
 
                                 </a>
-                              </div>
+
                                 <ul class="dropdown-menu dropdown-usermenu pull-right">
                                   <li><a class="btn dropdown-item" href="{{route('page.pemeliharaan')}}">Pemeliharaan</a></li>
                                   <li><a class="btn dropdown-item" href="{{route('page.pemanfaatan')}}">Pemanfaatan</a></li>
                                   <li><a class="btn dropdown-item" href="{{route('page.pemindah_tanganan')}}">Pemindah-tanganan</a></li>
                                   <li><a class="btn dropdown-item" href="{{route('page.pembiayaan')}}">Pembiayaan</a></li>
                                 </ul>
+                              </div>
                                   </center>
                               @endif
 

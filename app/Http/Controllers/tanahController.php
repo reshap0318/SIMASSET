@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\aset_pemeliharaan;
+use App\aset_pemindahtangan;
 use App\pemanfaatan;
 use Illuminate\Http\Request;
 use DB;
@@ -47,12 +49,21 @@ class tanahController extends Controller
 	        $kab = 'Darmasraya';
         }
 
-        $total_biaya =0;
+        $biaya_manfaat=0;
         $manfaat = pemanfaatan::where('aset_id', $id)->get();
 	    foreach ($manfaat as $m){
-	        $total_biaya = $total_biaya + $m->biaya;
+            $biaya_manfaat = $biaya_manfaat + $m->biaya;
         }
-	    return view('backend.asset.tanah.detail',compact('data','kab','manfaat', 'total_biaya'));
+
+        $biaya_pemeliharaan=0;
+	    $pelihara = aset_pemeliharaan::where('aset_id', $id)->get();
+	    foreach ($pelihara as $p){
+	        $biaya_pemeliharaan =$biaya_pemeliharaan+$p->biaya;
+        }
+
+        $pindah = aset_pemindahtangan::where('aset_id',$id)->get();
+
+	    return view('backend.asset.tanah.detail',compact('data','kab','manfaat', 'biaya_manfaat','biaya_pemeliharaan','pelihara','pindah'));
     }
 		
 
