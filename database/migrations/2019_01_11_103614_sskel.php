@@ -19,7 +19,7 @@ class Sskel extends Migration
             $table->string('kd_sskel');
             $table->string('ur_sskel');
             $table->string('satuan');
-            $table->integer('kd_brg')->unique();
+            $table->string('kd_brg')->unique();
             $table->string('dasar');
 
             $table->foreign('id_skel')->references('id_skel')->on('skel');

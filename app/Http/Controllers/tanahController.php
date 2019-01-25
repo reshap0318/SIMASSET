@@ -38,8 +38,14 @@ class tanahController extends Controller
 
     public function show(Request $request){
 	    $data = \App\tanah::where('kd_brg', $request->kd_brg)->first();
-//	    dd($request->kd_brg);
-	    return view('backend.asset.tanah.detail',compact('data'));
+	    if(($data->kd_kab == 855)||($data->kd_kab == 800)){
+	        $kab = 'Padang';
+        } else if(($data->kd_kab == 856)||($data->kd_kab == 803)){
+	        $kab = 'Payakumbuh';
+        }else{
+	        $kab = 'Darmasraya';
+        }
+	    return view('backend.asset.tanah.detail',compact('data','kab'));
     }
 		
 

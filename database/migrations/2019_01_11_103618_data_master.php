@@ -17,7 +17,7 @@ class DataMaster extends Migration
         $table->integer('id')->unsigned()->primary();
         $table->string('nama_asset');
         $table->string('keterangan');
-        $table->integer('turunan_id')->unsigned()->nullable();
+//        $table->integer('turunan_id')->unsigned()->nullable();
         $table->timestamps();
       });
     }

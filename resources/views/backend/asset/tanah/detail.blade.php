@@ -11,14 +11,7 @@
 		</div>
 		<div class="x_content">
 			<div class="flex">
-				<div class="col-md-5 text-center">
-					@if(is_null($data->foto)|$data->foto=="")
-						<img src="{{ asset('/img/lea.png') }}" alt="..." width="400px" height="320px">
-					@else
-						<img src="{{ url('avatar/aset-pict/'.$data->foto) }}" alt="..."  width="100%" height="290px">
-					@endif
-					{{--            {!! Form::label('inventaris_kode',$aset->barang->nama_barang.' '.$aset->satker->nama_satker) !!}--}}
-				</div>
+
 				<div class="col-md-7">
 					<div class="form-group row col-md-12">
 						<div class="col-md-4">
@@ -33,7 +26,7 @@
 							{!! Form::label('nama', 'RPH Aset') !!}
 						</div>
 						<div class="col-md-8">
-							Rp {!! Form::label('nama', ' : ') !!} {{number_format($data->rph_aset  ,0,",",".")}}
+							 {!! Form::label('nama', ' : ') !!} Rp {{number_format($data->rph_aset  ,0,",",".")}}
 						</div>
 					</div>
 
@@ -52,15 +45,6 @@
 							{!! Form::label('nama', 'Kota/Kabupaten') !!}
 						</div>
 						<div class="col-md-8">
-							<?php
-							$kab=0;
-							if($data->kab == 855){
-							    $kab = 'Limau Manih';
-							}elseif ($data->kab == 856){
-							    $kab='Payakumbuh';
-                            }else{
-							    $kab ='Damasraya';
-                            }?>
 							{!! Form::label('nama', ' : ') !!} {{$kab}}
 						</div>
 					</div>
@@ -80,17 +64,10 @@
 							{!! Form::label('nama', ' : ') !!} {{$data->kel}}
 						</div>
 					</div>
+
 					<div class="form-group row col-md-12">
 						<div class="col-md-4">
-							{!! Form::label('nama', 'Kuantitas') !!}
-						</div>
-						<div class="col-md-8">
-							{!! Form::label('nama', ' : ') !!} {{$data->kuantitas}}
-						</div>
-					</div>
-					<div class="form-group row col-md-12">
-						<div class="col-md-4">
-							{!! Form::label('nama', 'trn') !!}
+							{!! Form::label('nama', 'Transaksi') !!}
 						</div>
 						<div class="col-md-8">
 							@if($data->kd_trn !=NULL)
@@ -119,25 +96,10 @@
 							@endif
 						</div>
 					</div>
+
 					<div class="form-group row col-md-12">
 						<div class="col-md-4">
-							{!! Form::label('nama', 'Sumber') !!}
-						</div>
-						<div class="col-md-8">
-								{!! Form::label('nama', ' : ') !!} {{$data->sumber}}
-						</div>
-					</div>
-					<div class="form-group row col-md-12">
-						<div class="col-md-4">
-							{!! Form::label('nama', 'Dari') !!}
-						</div>
-						<div class="col-md-8">
-								{!! Form::label('nama', ' : ') !!} {{$data->dari}}
-						</div>
-					</div>
-					<div class="form-group row col-md-12">
-						<div class="col-md-4">
-							{!! Form::label('nama', 'Unit PMK') !!}
+							{!! Form::label('nama', 'Unit Kepemilikan') !!}
 						</div>
 						<div class="col-md-8">
 							{!! Form::label('nama', ' : ') !!} {{$data->unit_pmk}}
@@ -161,73 +123,76 @@
 					</div>
 					<div class="form-group row col-md-12">
 						<div class="col-md-4">
-							{!! Form::label('nama', 'Tanggal Prl') !!}
+							{!! Form::label('nama', 'Tanggal Perihal') !!}
 						</div>
 						<div class="col-md-8">
 							{!! Form::label('nama', ' : ') !!} {{$data->tgl_prl}}
 						</div>
+
 					</div>
 
-
-
-			<div class="row">
-					<div class="col-4"></div>
-
+				</div>
+				<div class="col-md-5 text-center">
+					@if(is_null($data->foto)|$data->foto=="")
+						<img src="{{ asset('/img/lea.png') }}" alt="..." width="400px" height="320px">
+					@else
+						<img src="{{ url('avatar/aset-pict/'.$data->foto) }}" alt="..."  width="100%" height="290px">
+					@endif
+					{{--            {!! Form::label('inventaris_kode',$aset->barang->nama_barang.' '.$aset->satker->nama_satker) !!}--}}
 				</div>
 			</div>
 		</div>
-	</div>
+		<div class="row">
+			<div class="col-md-4 col-sm-4 col-xs-12">
 
+			<div class="x_panel tile fixed_height">
+				<div class="x_title">
+					<a href=""><h3>Luas</h3></a>
+					<ul class="nav navbar-right panel_toolbox">
 
-
-	<div class="col-md-4 col-sm-4 col-xs-12">
-		<div class="x_panel tile fixed_height">
-			<div class="x_title">
-				<a href=""><h3>Luas</h3></a>
-				<ul class="nav navbar-right panel_toolbox">
-
-				</ul>
-				<div class="clearfix"></div>
-			</div>
-
-			<div class="x_content">
-				<div class="form-group row col-md-12">
-					<div class="col-md-4">
-						{!! Form::label('nama', 'luass') !!}
-					</div>
-					<div class="col-md-8">
-						{!! Form::label('nama', ' : ') !!} {{$data->luass}} m2
-					</div>
-				</div>
-				<div class="form-group row col-md-12">
-					<div class="col-md-4">
-						{!! Form::label('nama', 'luasb') !!}
-					</div>
-					<div class="col-md-8">
-						{!! Form::label('nama', ' : ') !!} {{$data->luasb}} m2
-					</div>
+					</ul>
+					<div class="clearfix"></div>
 				</div>
 
-				<div class="form-group row col-md-12">
-					<div class="col-md-4">
-						{!! Form::label('nama', 'luasl') !!}
+				<div class="x_content">
+					<div class="form-group row col-md-12">
+						<div class="col-md-8">
+							{!! Form::label('nama', 'Total Luas') !!}
+						</div>
+						<div class="col-md-4">
+							{!! Form::label('nama', ' : ') !!} {{$data->luass}} m2
+						</div>
 					</div>
-					<div class="col-md-8">
-						{!! Form::label('nama', ' : ') !!} {{$data->luasl}} m2
+					<div class="form-group row col-md-12">
+						<div class="col-md-8">
+							{!! Form::label('nama', 'Luas Bangunan') !!}
+						</div>
+						<div class="col-md-4">
+							{!! Form::label('nama', ' : ') !!} {{$data->luasb}} m2
+						</div>
 					</div>
-				</div>
 
-				<div class="form-group row col-md-12">
-					<div class="col-md-4">
-						{!! Form::label('nama', 'luask') !!}
+					<div class="form-group row col-md-12">
+						<div class="col-md-8">
+							{!! Form::label('nama', 'Luas Lantai') !!}
+						</div>
+						<div class="col-md-4">
+							{!! Form::label('nama', ' : ') !!} {{$data->luasl}} m2
+						</div>
 					</div>
-					<div class="col-md-8">
-						{!! Form::label('nama', ' : ') !!} {{$data->luask}} m2
-					</div>
+
+					{{--<div class="form-group row col-md-12">--}}
+						{{--<div class="col-md-8">--}}
+							{{--{!! Form::label('nama', 'Luas k') !!}--}}
+						{{--</div>--}}
+						{{--<div class="col-md-4">--}}
+							{{--{!! Form::label('nama', ' : ') !!} {{$data->luask}} m2--}}
+						{{--</div>--}}
+					{{--</div>--}}
 				</div>
 			</div>
 		</div>
-	</div>
+
 
 		<div class="col-md-4 col-sm-4 col-xs-12">
 			<div class="x_panel tile fixed_height">
@@ -242,7 +207,7 @@
 				<div class="x_content">
 					<div class="form-group row col-md-12">
 						<div class="col-md-4">
-							{!! Form::label('nama', 'Batas Utara') !!}
+							{!! Form::label('nama', 'Utara') !!}
 						</div>
 						<div class="col-md-8">
 							{!! Form::label('nama', ' : ') !!} {{$data->batas_u}}
@@ -250,7 +215,7 @@
 					</div>
 					<div class="form-group row col-md-12">
 						<div class="col-md-4">
-							{!! Form::label('nama', 'Batas Seletan') !!}
+							{!! Form::label('nama', 'Seletan') !!}
 						</div>
 						<div class="col-md-8">
 							{!! Form::label('nama', ' : ') !!} {{$data->batas_s}}
@@ -259,7 +224,7 @@
 
 					<div class="form-group row col-md-12">
 						<div class="col-md-4">
-							{!! Form::label('nama', 'Batas Timur') !!}
+							{!! Form::label('nama', 'Timur') !!}
 						</div>
 						<div class="col-md-8">
 							{!! Form::label('nama', ' : ') !!} {{$data->batas_t}}
@@ -268,7 +233,7 @@
 
 					<div class="form-group row col-md-12">
 						<div class="col-md-4">
-							{!! Form::label('nama', 'Batas Barat') !!}
+							{!! Form::label('nama', 'Barat') !!}
 						</div>
 						<div class="col-md-8">
 							{!! Form::label('nama', ' : ') !!} {{$data->batas_b}}
@@ -289,33 +254,39 @@
 			</div>
 
 			<div class="x_content">
-				<div class="form-group row col-md-12">
-					<div class="col-md-4">
-						{!! Form::label('nama', 'Surat 1') !!}
-					</div>
-					<div class="col-md-8">
-						{!! Form::label('nama', ' : ') !!} {{$data->surat1}}
-					</div>
-				</div>
-				<div class="form-group row col-md-12">
-					<div class="col-md-4">
-						{!! Form::label('nama', 'Surat2') !!}
-					</div>
-					<div class="col-md-8">
-						{!! Form::label('nama', ' : ') !!} {{$data->surat2}}
-					</div>
-				</div>
+				@if($data->surat1 != null)
 
-				<div class="form-group row col-md-12">
-					<div class="col-md-4">
-						{!! Form::label('nama', 'Surat3') !!}
+					<div class="form-group row col-md-12">
+						<div class="col-md-4">
+							{!! Form::label('nama', 'Sertifikat') !!}
+						</div>
+						<div class="col-md-8">
+							{!! Form::label('nama', ' : ') !!} {{$data->surat1}}
+						</div>
 					</div>
-					<div class="col-md-8">
-						{!! Form::label('nama', ' : ') !!} {{$data->surat3}}
+					<div class="form-group row col-md-12">
+						<div class="col-md-4">
+							{!! Form::label('nama', 'Tanggal') !!}
+						</div>
+						<div class="col-md-8">
+							{!! Form::label('nama', ' : ') !!} {{$data->surat2}}
+						</div>
 					</div>
-				</div>
+
+					<div class="form-group row col-md-12">
+						<div class="col-md-4">
+							{!! Form::label('nama', 'Yang mengeluarkan') !!}
+						</div>
+						<div class="col-md-8">
+							{!! Form::label('nama', ' : ') !!} {{$data->surat3}}
+						</div>
+					</div>
+					@else
+				data sertifikat belum ada
+					@endif
 			</div>
 		</div>
+	</div>
 	</div>
 	</div>
 

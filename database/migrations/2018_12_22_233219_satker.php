@@ -13,12 +13,12 @@ class Satker extends Migration
      */
     public function up()
     {
-      Schema::create('satker', function (Blueprint $table) {
-        $table->increments('id');
-        $table->string('kode_satker')->unique();
-        $table->string('nama_satker');
-          $table->timestamps();
-    });
+//      Schema::create('satker', function (Blueprint $table) {
+//        $table->increments('id');
+//        $table->string('kode_satker')->unique();
+//        $table->string('nama_satker');
+//          $table->timestamps();
+//    });
     }
 
     /**

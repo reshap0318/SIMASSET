@@ -13,9 +13,9 @@ class AddRelationTurunanDatamaster extends Migration
      */
     public function up()
     {
-        Schema::table('data_master', function (Blueprint $table) {
-            $table->foreign('turunan_id')->references('id')->on('data_master');
-        });
+//        Schema::table('data_master', function (Blueprint $table) {
+//            $table->foreign('turunan_id')->references('id')->on('data_master');
+//        });
     }
 
     /**
