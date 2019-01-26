@@ -45,15 +45,23 @@ class asset extends Model
       return $this->belongsTo(data_master::class, 'master_id', 'id');
   }
 
-  public function barang($value='')
-  {
-      return $this->belongsTo(barang::class, 'kode_barang', 'kode_barang');
-  }
+//  public function barang($value='')
+//  {
+//      return $this->belongsTo(barang::class, 'kode_barang', 'kode_barang');
+//  }
+//
+//  public function satker($value='')
+//  {
+//      return $this->belongsTo(satker::class, 'kode_satker', 'kode_satker');
+//  }
 
-  public function satker($value='')
-  {
-      return $this->belongsTo(satker::class, 'kode_satker', 'kode_satker');
-  }
+    public function trn(){
+        return $this->belongsTo(transaksi::class, 'kd_trn', 'kd_trn');
+    }
+
+    public function status(){
+        return $this->belongsTo(status::class, 'id_status', 'id_status');
+    }
 
     public function tanah()
     {
@@ -62,6 +70,10 @@ class asset extends Model
 
     public function sskel(){
         return $this->belongsTo(sskel::class, 'kd_brg', 'kd_brg');
+    }
+
+    public function peralatan_mesin(){
+        return $this->belongsTo(peralatan_mesin::class, 'id', 'id');
     }
 
 }

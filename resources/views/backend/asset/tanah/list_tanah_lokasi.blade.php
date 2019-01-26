@@ -49,7 +49,13 @@
                           <td>{{kasihtitik($dat->aset->kd_brg)}}</td>
                           <td class=" ">{{$dat->aset->sskel->ur_sskel}}</td>
                           <td class=" ">{{$dat->luass}}</td>
-                          <td class=" ">{{$dat->aset->catatan}}</td>
+                          <td class=" ">
+                              @if($dat->aset->catatan != null)
+                                  {{$dat->aset->catatan}}
+                              @else
+                                  <small style="color: red"> Catatan Belum ada </small>
+                              @endif
+                          </td>
 
                           <td class=" last">
                               @if (Sentinel::getUser()->hasAccess(['aset.show']))

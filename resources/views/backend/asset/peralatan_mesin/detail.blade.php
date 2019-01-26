@@ -24,14 +24,15 @@
 						</div>
 					</div>
 					<h4 class="center">{{$data->aset->sskel->ur_sskel}}</h4>
-					<label class="label label-primary">{{$data->aset->catatan}} </label><br><br/>
+					<label class="label label-primary">
+						@if($data->aset->catatan == null)
+							catatan belum ada
+							@else
+							{{$data->aset->catatan}}
+						@endif
+					</label><br><br/>
 					<ul class="list-unstyled user_data">
-						<li><i class="fa fa-map-marker user-profile-icon"></i> {{$kab}}
-						</li>
-						<li class="m-top-xs">
-							<i class="fa fa-external-link user-profile-icon"></i>
-							<a href="http://www.kimlabs.com/profile/" target="_blank" class="label label-warning">lihat peta</a>
-						</li>
+
 						<li>
 							<i> <strong>Status :</strong></i>
 							<br>{{$data->aset->status->ur_status}}
@@ -52,6 +53,14 @@
 							<i> <strong>Jenis Transaksi:</strong></i>
 							<br>{{$data->aset->trn->ur_trn}}
 						</li>
+						<li>
+							<i> <strong>No Polisi:</strong></i>
+							<br>{{$data->no_polisi}}
+						</li>
+						<li>
+							<i> <strong>No Bpkb:</strong></i>
+							<br>{{$data->no_bpkb}}
+						</li>
 					</ul>
 					{{--<a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>--}}
 					<br>
@@ -60,9 +69,10 @@
 						<a class="btn btn-primary btn-xs">Lihat riwayat kondisi</a>
 					</div>
 
+
 					<div class="x_panel tile fixed_height_100 overflow_hidden">
 						<div class="x_title">
-							<h2>Sertifikat</h2>
+							<h2>Spesifikasi</h2>
 							<ul class="nav navbar-right panel_toolbox">
 								<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 								</li>
@@ -72,105 +82,65 @@
 						<div class="x_content">
 							<table class="table table-responsive">
 								<tr>
-									<td>Sertifikat</td>
-									<td>{{$data->surat1}}</td>
+									<td>Merek</td>
+									<td>{{$data->merek}}</td>
 								</tr>
 								<tr>
-									<td>Tanggal Sertifikat</td>
-									<td>{{$data->surat2}}</td>
+									<td>Tipe</td>
+									<td>{{$data->tipe}}</td>
 								</tr>
 								<tr>
-									<td>Dikeluarkan</td>
-									<td>{{$data->surat3}}</td>
-								</tr>
-							</table>
-							@if($data->surat1 != null)
-									<a href="#" class="btn btn-info pull-right" style="color: white">Unduh Dokumen</a>
-								@else
-									<a href="#" class="btn btn-danger pull-right">Unggah</a>
-								@endif
-						</div>
-					</div>
-
-
-
-
-					<div class="x_panel tile fixed_height_100 overflow_hidden">
-						<div class="x_title">
-							<h2>Luas</h2>
-							<ul class="nav navbar-right panel_toolbox">
-								<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-								</li>
-							</ul>
-							<div class="clearfix"></div>
-						</div>
-						<div class="x_content">
-							<table class="table table-responsive">
-								<tr>
-									<td>Total Luas</td>
-									<td>{{$data->luass}} m2</td>
+									<td>Pabrik</td>
+									<td>{{$data->pabrik}}</td>
 								</tr>
 								<tr>
-									<td>Luas Bangunan</td>
-									<td>{{$data->luasb}} m2</td>
+									<td>Tahun</td>
+									<td>{{$data->tahun}}</td>
 								</tr>
 								<tr>
-									<td>Luas Lantai</td>
-									<td>{{$data->luasl}} m2</td>
+									<td>Bahan Bakar</td>
+									<td>{{$data->bahan_bakar}}</td>
+								</tr>
+								<tr>
+									<td>Kapasitas</td>
+									<td>{{$data->kapasitas}}</td>
+								</tr>
+								<tr>
+									<td>Bobot</td>
+									<td>{{$data->bobot}}</td>
+								</tr>
+								<tr>
+									<td>Daya</td>
+									<td>{{$data->daya}}</td>
+								</tr>
+								<tr>
+									<td>No Mesin</td>
+									<td>{{$data->no_mesin}}</td>
+								</tr>
+								<tr>
+									<td>No Rangka</td>
+									<td>{{$data->no_rangka}}</td>
 								</tr>
 							</table>
 						</div>
 					</div>
-
-
-					<div class="x_panel tile fixed_height_100 overflow_hidden">
-						<div class="x_title">
-							<h2>Batas</h2>
-							<ul class="nav navbar-right panel_toolbox">
-								<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-								</li>
-							</ul>
-							<div class="clearfix"></div>
-						</div>
-						<div class="x_content">
-							<table class="table table-responsive">
-								<tr>
-									<td>Barat</td>
-									<td>{{$data->batas_b}} </td>
-								</tr>
-								<tr>
-									<td>Timur</td>
-									<td>{{$data->batas_t}}</td>
-								</tr>
-								<tr>
-									<td>Utara</td>
-									<td>{{$data->batas_u}}</td>
-								</tr>
-								<tr>
-									<td>Selatan</td>
-									<td>{{$data->batas_s}}</td>
-								</tr>
-							</table>
-						</div>
-					</div>
-
-
 				</div>
+
 				<div class="col-md-9 col-sm-9 col-xs-12">
-				<div class="row tile_count">
-					<div class="col-md-4 col-sm-4 col-xs-4 tile_stats_count">
-						<span class="count_top"><i class="fa fa-money"></i> Total Biaya Pemanfaatan</span>
-						<div class="count" style="font-size: 26px">Rp {{number_format( $biaya_manfaat,0,",",".")}}</div>
+					<div class="row tile_count">
+						<div class="col-md-4 col-sm-4 col-xs-4 tile_stats_count">
+							<span class="count_top"><i class="fa fa-money"></i> Total Biaya Pemanfaatan</span>
+							<div class="count" style="font-size: 26px">Rp {{number_format( $biaya_manfaat,0,",",".")}}</div>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-4 tile_stats_count">
+							<span class="count_top"><i class="fa  fa-money"></i> Total Biaya Pemeliharaan</span>
+							<div class="count green" style="font-size: 26px">Rp {{number_format( $biaya_pemeliharaan,0,",",".")}}</div>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-4 tile_stats_count">
+							<span class="count_top"><i class="fa fa-money"></i> Nilai Rupiah Aset</span>
+							<div class="count" style="font-size: 26px">Rp {{number_format($data->aset->rph_aset  ,0,",",".")}}</div>
+						</div>
 					</div>
-					<div class="col-md-4 col-sm-4 col-xs-4 tile_stats_count">
-						<span class="count_top"><i class="fa  fa-money"></i> Total Biaya Pemeliharaan</span>
-						<div class="count green" style="font-size: 26px">Rp {{number_format( $biaya_pemeliharaan,0,",",".")}}</div>
-					</div>
-					<div class="col-md-4 col-sm-4 col-xs-4 tile_stats_count">
-						<span class="count_top"><i class="fa fa-money"></i> Nilai Rupiah Aset</span>
-						<div class="count" style="font-size: 26px">Rp {{number_format($data->aset->rph_aset  ,0,",",".")}}</div>
-					</div>
-				</div>
 				</div>
 
 				<div class="col-md-9 col-sm-9 col-xs-12">

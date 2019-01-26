@@ -59,13 +59,7 @@ class tanah extends Model
         return $this->belongsTo(sskel::class, 'kd_brg', 'kd_brg');
     }
 
-    public function trn(){
-        return $this->belongsTo(transaksi::class, 'kd_trn', 'kd_trn');
-    }
 
-    public function status(){
-        return $this->belongsTo(status::class, 'id_status', 'id_status');
-    }
 
     public function milik(){
         return $this->belongsTo(kepemilikan::class, 'id_kepemilikan', 'id_kepemilikan');
