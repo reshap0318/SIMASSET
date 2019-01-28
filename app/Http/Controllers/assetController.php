@@ -40,6 +40,13 @@ class assetController extends Controller
 
             return view('backend.asset.gedung_bangunan.index',compact('aset','datas','data_master','total_padang','total_damasraya', 'total_payakumbuh'));
 
+        }elseif($request->data=='5') {
+            $total_damasraya = DB::select('Select count(id) as total, sum(luas_bdg) as sum from air_jaringan where kd_kab=0');
+            $total_payakumbuh = DB::select('Select count(id) as total, sum(luas_bdg) as sum from air_jaringan where kd_kab=856 or kd_kab=803');
+            $total_padang = DB::select('Select count(id) as total,sum(luas_bdg) as sum from air_jaringan where kd_kab=855 or kd_kab=800');
+
+            return view('backend.asset.air_jaringan.index',compact('aset','datas','data_master','total_padang','total_damasraya', 'total_payakumbuh'));
+
         }
         else{
             return view('frontend.404');
