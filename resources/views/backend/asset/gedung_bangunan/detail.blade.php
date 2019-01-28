@@ -6,8 +6,8 @@
 @section('content')
 	<div class="x_panel">
 		<div class="x_title">
-		<h2>Detail ( {{$data->aset->sskel->ur_sskel}}---{{$data->aset->kd_brg}} )</h2>
-		<div class="clearfix"></div>
+			<h2>Detail ( {{$data->aset->sskel->ur_sskel}}---{{$data->aset->kd_brg}} )</h2>
+			<div class="clearfix"></div>
 		</div>
 
 		<div class="x_panel">
@@ -17,9 +17,9 @@
 					<div class="profile_img">
 						<div id="crop-avatar">
 							@if(is_null($data->foto)|$data->foto=="")
-							<img src="{{ asset('/img/lea.png') }}" alt="Avatar"  class="img-responsive avatar-view">
+								<img src="{{ asset('/img/lea.png') }}" alt="Avatar"  class="img-responsive avatar-view">
 							@else
-							<img src="{{ url('avatar/aset-pict/'.$data->foto) }}" alt="Avatar"  class="img-responsive avatar-view">
+								<img src="{{ url('avatar/aset-pict/'.$data->foto) }}" alt="Avatar"  class="img-responsive avatar-view">
 							@endif
 						</div>
 					</div>
@@ -62,7 +62,7 @@
 
 					<div class="x_panel tile fixed_height_100 overflow_hidden">
 						<div class="x_title">
-							<h2>Sertifikat</h2>
+							<h2>Deskripsi</h2>
 							<ul class="nav navbar-right panel_toolbox">
 								<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 								</li>
@@ -72,105 +72,48 @@
 						<div class="x_content">
 							<table class="table table-responsive">
 								<tr>
-									<td>Sertifikat</td>
-									<td>{{$data->surat1}}</td>
+									<td>Luas</td>
+									<td>{{$data->luas_bdg}} m2</td>
 								</tr>
 								<tr>
-									<td>Tanggal Sertifikat</td>
-									<td>{{$data->surat2}}</td>
+									<td>Jumlah Lantai</td>
+									<td>{{$data->jumlah_lt}}</td>
 								</tr>
 								<tr>
-									<td>Dikeluarkan</td>
-									<td>{{$data->surat3}}</td>
-								</tr>
-							</table>
-							@if($data->surat1 != null)
-									<a href="#" class="btn btn-info pull-right" style="color: white">Unduh Dokumen</a>
-								@else
-									<a href="#" class="btn btn-danger pull-right">Unggah</a>
-								@endif
-						</div>
-					</div>
-
-
-
-
-					<div class="x_panel tile fixed_height_100 overflow_hidden">
-						<div class="x_title">
-							<h2>Luas</h2>
-							<ul class="nav navbar-right panel_toolbox">
-								<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-								</li>
-							</ul>
-							<div class="clearfix"></div>
-						</div>
-						<div class="x_content">
-							<table class="table table-responsive">
-								<tr>
-									<td>Total Luas</td>
-									<td>{{$data->luass}} m2</td>
+									<td>Tipe</td>
+									<td>{{$data->tipe}}</td>
 								</tr>
 								<tr>
-									<td>Luas Bangunan</td>
-									<td>{{$data->luasb}} m2</td>
+									<td>Tahun Selesai</td>
+									<td>{{$data->tahun_selesai}}</td>
 								</tr>
 								<tr>
-									<td>Luas Lantai</td>
-									<td>{{$data->luasl}} m2</td>
+									<td>Tahun Pakai</td>
+									<td>{{$data->tahun_pakai}}</td>
 								</tr>
 							</table>
 						</div>
 					</div>
 
 
-					<div class="x_panel tile fixed_height_100 overflow_hidden">
-						<div class="x_title">
-							<h2>Batas</h2>
-							<ul class="nav navbar-right panel_toolbox">
-								<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-								</li>
-							</ul>
-							<div class="clearfix"></div>
-						</div>
-						<div class="x_content">
-							<table class="table table-responsive">
-								<tr>
-									<td>Barat</td>
-									<td>{{$data->batas_b}} </td>
-								</tr>
-								<tr>
-									<td>Timur</td>
-									<td>{{$data->batas_t}}</td>
-								</tr>
-								<tr>
-									<td>Utara</td>
-									<td>{{$data->batas_u}}</td>
-								</tr>
-								<tr>
-									<td>Selatan</td>
-									<td>{{$data->batas_s}}</td>
-								</tr>
-							</table>
-						</div>
-					</div>
 
 
 				</div>
 				<div class="col-md-9 col-sm-9 col-xs-12">
-				<div class="row tile_count">
-					<div class="col-md-4 col-sm-4 col-xs-4 tile_stats_count">
-						<span class="count_top"><i class="fa fa-money"></i> Total Biaya Pemanfaatan</span>
-						<div class="count" style="font-size: 26px">Rp {{number_format( $biaya_manfaat,0,",",".")}}</div>
+					<div class="row tile_count">
+						<div class="col-md-4 col-sm-4 col-xs-4 tile_stats_count">
+							<span class="count_top"><i class="fa fa-money"></i> Total Biaya Pemanfaatan</span>
+							<div class="count" style="font-size: 26px">Rp {{number_format( $biaya_manfaat,0,",",".")}}</div>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-4 tile_stats_count">
+							<span class="count_top"><i class="fa  fa-money"></i> Total Biaya Pemeliharaan</span>
+							<div class="count green" style="font-size: 26px">Rp {{number_format( $biaya_pemeliharaan,0,",",".")}}</div>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-4 tile_stats_count">
+							<span class="count_top"><i class="fa fa-money"></i> Nilai Rupiah Aset</span>
+							<div class="count" style="font-size: 26px">Rp {{number_format($data->aset->rph_aset  ,0,",",".")}}</div>
+						</div>
 					</div>
-					<div class="col-md-4 col-sm-4 col-xs-4 tile_stats_count">
-						<span class="count_top"><i class="fa  fa-money"></i> Total Biaya Pemeliharaan</span>
-						<div class="count green" style="font-size: 26px">Rp {{number_format( $biaya_pemeliharaan,0,",",".")}}</div>
-					</div>
-					<div class="col-md-4 col-sm-4 col-xs-4 tile_stats_count">
-						<span class="count_top"><i class="fa fa-money"></i> Nilai Rupiah Aset</span>
-						<div class="count" style="font-size: 26px">Rp {{number_format($data->aset->rph_aset  ,0,",",".")}}</div>
-					</div>
-				</div>
 				</div>
 
 				<div class="col-md-9 col-sm-9 col-xs-12">
@@ -200,7 +143,7 @@
 								@include ('backend.asset.tab.pemindahtanganan')
 							</div>
 							{{--<div role="tabpanel" class="tab-pane fade" id="pembayaran" aria-labelledby="profile-tab">--}}
-								{{--@include ('backend.asset.tab.pembayaran')--}}
+							{{--@include ('backend.asset.tab.pembayaran')--}}
 							{{--</div>--}}
 						</div>
 					</div>

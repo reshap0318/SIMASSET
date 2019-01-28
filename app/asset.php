@@ -12,17 +12,11 @@ class asset extends Model
   const UPDATED_AT = 'updated_at';
 
   protected $casts = [
-    'no_registrasi_aset'    => 'string',
-    'kode_barang'           => 'string',
-    'kode_satker'           => 'string',
+
+    'kd_brg'               => 'string',
     'nup'                   => 'string',
     'no_kib'                => 'string',
-    'kondisi'               => 'integer',
-    'merek'                 => 'string',
-    'tercatat_dalam'        => 'string',
-    'status_sbsn'           => 'string',
-    'status_aset_idle'      => 'string',
-    'master_id'             => 'integer',
+    'master_id'             => 'integer'
   ];
 
   protected $fillable = [

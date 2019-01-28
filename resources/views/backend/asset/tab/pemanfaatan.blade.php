@@ -10,6 +10,7 @@
         <th>no</th>
         <th>Tanggal</th>
         <th>Penyewa</th>
+        <th>Status</th>
         <th>Perihal</th>
         <th>Lama Sewa</th>
         <th>Biaya</th>
@@ -23,6 +24,7 @@
         <td>{{++$n}}</td>
         <td>{{$m->tanggal}}</td>
         <td>{{$m->penyewa}}</td>
+        <td>{{$m->status}}</td>
         <td>{{$m->perihal}}</td>
         <td>{{$m->lama_sewa}}</td>
         <td>Rp {{number_format($m->biaya,0,",",".")}}</td>

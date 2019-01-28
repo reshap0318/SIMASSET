@@ -44,13 +44,13 @@
 
 
 
-        @if(Sentinel::getUser()->hasAccess(['barang.index']))
-          <li><a href="{{ route('barang.index') }}"><i class="fa fa-cubes"></i>Barang</a></li>
-        @endif
+        {{--@if(Sentinel::getUser()->hasAccess(['barang.index']))--}}
+          {{--<li><a href="{{ route('barang.index') }}"><i class="fa fa-cubes"></i>Barang</a></li>--}}
+        {{--@endif--}}
 
-        @if(Sentinel::getUser()->hasAccess(['satker.index']))
-          <li><a href="{{ route('satker.index') }}"><i class="fa fa-building"></i>Satuan Kerja</a></li>
-        @endif
+        {{--@if(Sentinel::getUser()->hasAccess(['satker.index']))--}}
+          {{--<li><a href="{{ route('satker.index') }}"><i class="fa fa-building"></i>Satuan Kerja</a></li>--}}
+        {{--@endif--}}
 
         @if(Sentinel::getUser()->hasAccess(['datamaster.index']))
           <li><a href="{{route('datamaster.index')}}"><i class="fa fa-bookmark  "></i>Identitas Aset </a>

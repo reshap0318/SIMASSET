@@ -15,7 +15,6 @@ class PeralatanMesin extends Migration
     {
         Schema::create('peralatan_mesin', function (Blueprint $table) {
         $table->increments('id');
-        $table->string('no_registrasi_aset')->nullable();
         $table->string('merek')->nullable();
         $table->string('tipe')->nullable();
         $table->string('pabrik')->nullable();
@@ -48,7 +47,7 @@ class PeralatanMesin extends Migration
 //        $table->foreign('kd_brg')->references('kd_brg')->on('sskel');
 //        $table->foreign('kd_trn')->references('kd_trn')->on('transaksi');
 //        $table->foreign('id_status')->references('id_status')->on('status')->onDelete('cascade')->onUpdate('cascade');
-        $table->foreign('no_registrasi_aset')->references('no_registrasi_aset')->on('asset')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id')->references('id')->on('asset')->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
         });

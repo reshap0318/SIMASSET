@@ -22,6 +22,7 @@ Route::get('dataMaster/{kd_gol}/{kd_bid}', 'DataMasterController@showsub');
 Route::get('dataMaster/{kd_gol}/{kd_bid}/{kd_kel}', 'DataMasterController@showsubsub');
 Route::get('dataMaster/{kd_gol}/{kd_bid}/{kd_kel}/{kd_skel}', 'DataMasterController@showBarang');
 route::resource('peralatan_mesin','PeralatanMesinController');
+route::resource('gedungBangunan','gedungBangunanController');
 
 Route::group(['middleware' => ['web', 'auth', 'permission'] ], function () {
   Route::get('/', function () {

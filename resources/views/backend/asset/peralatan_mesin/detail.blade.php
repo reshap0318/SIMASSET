@@ -65,8 +65,8 @@
 					{{--<a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>--}}
 					<br>
 					<div class="x_panel">
-						<h4><strong>Kondisi Terkini</strong> : Baik</h4>
-						<a class="btn btn-primary btn-xs">Lihat riwayat kondisi</a>
+						<h4><strong>Kondisi Terkini</strong> : <label class="label label-primary"> Baik </label></h4>
+
 					</div>
 
 

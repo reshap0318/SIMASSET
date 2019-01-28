@@ -14,7 +14,7 @@ class sskel extends Model
      'kd_sskel' => 'string',
      'ur_sskel' => 'string',
      'satuan' => 'string',
-     'kd_brg' => 'integer',
+     'kd_brg' => 'string',
      'dasar' => 'string',
   ];
 

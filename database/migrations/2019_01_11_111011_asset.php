@@ -29,14 +29,7 @@ class Asset extends Migration
           $table->date('tgl_buku')->nullable();
           $table->string('id_status')->index()->nullable();
           $table->string('kd_trn')->index()->nullable();
-//        $table->string('kode_satker');
-//        $table->string('nup');
-//        $table->string('no_kib');
-//        $table->integer('kondisi');
-//        $table->string('merek');
-//        $table->string('tercatat_dalam');
-//        $table->string('status_sbsn');
-//        $table->string('status_aset_idle');
+
 
 
         $table->foreign('master_id')->references('id')->on('data_master');
