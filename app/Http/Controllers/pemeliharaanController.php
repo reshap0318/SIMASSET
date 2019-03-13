@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\aset_pemeliharaan as pemeliharaan;
+use Illuminate\Support\Facades\File;
 use App\asset;
 
 class pemeliharaanController extends Controller
@@ -38,8 +39,27 @@ class pemeliharaanController extends Controller
         $pemeliharaan->perihal = $request->perihal;
         $pemeliharaan->biaya = $request->biaya;
         $pemeliharaan->keterangan = $request->keterangan;
+        if ($request->hasFile('dokumen_path') && $request->dokumen_path->isValid()) {
+            $path = 'img/pemeliharaan';
+            $oldfile = $pemeliharaan->dokumen_path;
+
+            $fileext = $request->dokumen_path->extension();
+            $filename = uniqid("pemeliharaan-").'.'.$fileext;
+
+            //Real File
+            $filepath = $request->file('dokumen_path')->storeAs($path, $filename, 'local');
+            //Avatar File
+            $realpath = storage_path('app/'.$filepath);
+            $pemeliharaan->dokumen_path = $filename;
+        }
         try {
-          $pemeliharaan->save();
+          if($pemeliharaan->save()){
+            //hapus foto lama
+            if ($request->hasFile('dokumen_path') && $request->dokumen_path->isValid()) {
+              File::delete(storage_path('app'.'/'. $path . '/' . $oldfile));
+              File::delete(public_path($path . '/' . $oldfile));
+            }
+          }
           return redirect()->route('aset.index',['data='.$pemeliharaan->asset->master_id]);
         } catch (\Exception $e) {
           // dd($e);
@@ -75,6 +95,22 @@ class pemeliharaanController extends Controller
         $pemeliharaan->perihal = $request->perihal;
         $pemeliharaan->biaya = $request->biaya;
         $pemeliharaan->keterangan = $request->keterangan;
+
+        if ($request->hasFile('dokumen_path') && $request->dokumen_path->isValid()) {
+            $path = 'img/pemeliharaan';
+            $oldfile = $pemeliharaan->dokumen_path;
+
+            $fileext = $request->dokumen_path->extension();
+            $filename = uniqid("pemeliharaan-").'.'.$fileext;
+
+            //Real File
+            $filepath = $request->file('dokumen_path')->storeAs($path, $filename, 'local');
+            //Avatar File
+            $realpath = storage_path('app/'.$filepath);
+            $pemeliharaan->dokumen_path = $filename;
+            File::delete(storage_path('app'.'/'. $path . '/' . $oldfile));
+            File::delete(public_path($path . '/' . $oldfile));
+        }
         try {
           $pemeliharaan->update();
           return redirect()->route('aset.index',['data='.$pemeliharaan->asset->master_id]);
